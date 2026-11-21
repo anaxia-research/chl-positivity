@@ -12,7 +12,12 @@ for N in (3,5,7):
         lcount=math.log(2*R*R)+math.log(N*math.sqrt(2)*Gam**2.5+1)+math.log(math.sqrt(2)*N**(kp2/2)*N)
         lwall=lw+lcount+2*logDb(m)
         # shadow terms: <= (number of (gamma,delta) up to Gam)*poly * d(m) * exp(-c(m+2-2/m-2 sqrt m)), poly=(2m)^3 (4 pi^2 m^2 Gam^2/3)
-        lK=math.log(N*Gam**2)+math.log((2*m)**3*4*math.pi**2*m*m*Gam*Gam/3)+logDb(m)-c*(m+2-2/m-2*math.sqrt(m))
+        # shadow terms of the corrected expansion: per pair (gamma,delta) the bracket is at most
+        # (2pi)^(k+3) [pi^2(2m g+2g(1+log g))+2pi+8 pi m g (x0/(2g)+1)] e^{y}, y<=2c sqrt m; summed over <=N g pairs, g<=Gam,
+        # and over g>Gam with decay g^{-(k+2)}: total <= 2 x (sum up to Gam)
+        k=kp2-2; Gm=Gam
+        poly=(2*math.pi)**(k+3)*(math.pi**2*(2*m*Gm+2*Gm*(1+math.log(Gm)))+2*math.pi+8*math.pi*m*Gm*(math.sqrt(3)/N/2+1))
+        lK=math.log(2*N*Gm*Gm)+math.log(poly)+logDb(m)-c*(m+2-2/m-2*math.sqrt(m))
         return max(lwall,lK)+math.log(2)
     M=1500
     print(N,'logU(1500)=%.1f'%logU(M), 'slope', (logU(M+1)-logU(M)), 'slope at 1e4', logU(10001)-logU(10000))

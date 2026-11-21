@@ -17,3 +17,10 @@ Programs and output logs for the paper "Positive Single-Centred Black Hole Indic
 The wall bounds in `errterms.py` and `uniform.py` use the weight m+2-a-b; the paper multiplies them by sqrt(2), which covers the general wall weight |l_G| <= sqrt(2)(m+2).
 
 Requirements: Python 3, numpy, sympy, mpmath, python-flint (for exact series and Arb ball arithmetic). Environment variable `D0` sets the discriminant bound of the exact computation (400 for N=5,7 and 2500 for N=3).
+
+## Proofs of the structural inputs (appendices A–C)
+
+- `fixline.py`: the fixed-curve lattice search for the elliptic elements of Γ0(5) and Γ0(7) (Appendix A); output in `logs/fixline.log`.
+- `gamma0e.py`: direct check that d* is invariant under those elliptic elements (`logs/gamma0e_5.log`, `logs/gamma0e_7.log`).
+- `myformula.py`: the corrected exact expansion of Theorem 4.3, compared with exact values (`logs/my*.log`, `logs/myT*.log`).
+- `knew.py`, `kn3.py`: bounds for the K-terms of the corrected expansion (`logs/knew_*.log`); `crude.py` is updated to the same form.

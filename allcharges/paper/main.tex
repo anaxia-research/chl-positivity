@@ -36,7 +36,7 @@
 \email{d.bhattacharjee@erl-forschung.de}
 \subjclass[2020]{11F50 (primary); 11F30, 11F37, 81T30, 83E30}
 \keywords{CHL models, single-centred black holes, Rademacher expansion}
-\newcommand{\ERRthree}{$4.9\cdot10^{-22}$}\newcommand{\ERRfive}{$6.1\cdot10^{-9}$}\newcommand{\ERRseven}{$3.0\cdot10^{-8}$}
+\newcommand{\ERRthree}{$2.3\cdot10^{-21}$}\newcommand{\ERRfive}{$2.2\cdot10^{-8}$}\newcommand{\ERRseven}{$3.0\cdot10^{-8}$}
 \newcommand{\UthreeA}{$7.8\cdot10^{-10}$}\newcommand{\UthreeB}{$2.1\cdot10^{-72}$}\newcommand{\UfiveA}{$1.3\cdot10^{-9}$}\newcommand{\UfiveB}{$3.9\cdot10^{-31}$}\newcommand{\UsevenA}{$1.4\cdot10^{-9}$}\newcommand{\UsevenB}{$5.1\cdot10^{-15}$}
 \newcommand{\CNthree}{$2{,}090{,}978$}\newcommand{\CNfive}{$4{,}968{,}027$}\newcommand{\CNseven}{$4{,}400{,}496$}\newcommand{\CMthree}{$0.2057$ at $(400,400,400)$}\newcommand{\CMfive}{$0.1993$ at $(400,560,400)$}\newcommand{\CMseven}{$0.1651$ at $(399,399,285)$}
 \newcommand{\LGthree}{$0.203$}\newcommand{\LGfive}{$0.165$}\newcommand{\LGseven}{$0.078$}
@@ -75,7 +75,7 @@ which never vanishes, and whose minimum over the reduced charges is $0.205$, $0.
 \item In the corner, the terms of $\cL$ cancel against each other, and bounding them one at a time overshoots by a factor of about a thousand. For $Q^2<600/N$ we evaluate $\cL$ for each corner charge separately, with rigorous bounds for the omitted terms (Section~\ref{sec:corner}).
 \item For $Q^2\ge600/N$ we expand $\cL$ in powers of $1/m$ to tenth order, bound the remainder by interval arithmetic, and check the resulting function of $(x,\ell/m)$ on a certified grid (Section~\ref{sec:large}).
 \end{itemize}
-The finitely many charges with small discriminant are settled by computing $d_*$ exactly from the product formula (Section~\ref{sec:exact}), and Section~\ref{sec:proof} assembles the proof. All programs are public.
+The finitely many charges with small discriminant are settled by computing $d_*$ exactly from the product formula (Section~\ref{sec:exact}), and Section~\ref{sec:proof} assembles the proof. The three structural inputs, the $\Gamma_0(N)$ symmetry of the partition function, the wall-crossing formula for the polar coefficients and the exact expansion, are proved in Appendices~\ref{app:sym}, \ref{app:walls} and \ref{app:circle}. All programs are public.
 
 \begin{figure}[t]
 \centering
@@ -160,7 +160,7 @@ Let $N\in\{3,5,7\}$. The coefficients of $1/\tPhi_k$ satisfy $c(m,n,\ell)=c(n,m,
 \end{prop}
 
 \begin{proof}
-By Lemma~\ref{lem:E} the product \eqref{eq:product} is invariant under $\kappa\leftrightarrow l$, and its prefactor $\e(\rho+\sigma/N+v)$ is invariant under $\rho\leftrightarrow\sigma/N$. So $\tPhi_k(\rho,\sigma,v)=\tPhi_k(\sigma/N,N\rho,v)$, which exchanges $m$ and $n$. For $\Gamma_0(N)$: the action \eqref{eq:action} on the exponent vectors $(\kappa,l,j)$ preserves $4\kappa l/N-j^2$, the parity of $j$, and the conditions $N\mid\kappa$ and $N\mid l$, since $a$ and $d$ are prime to $N$ and $\kappa'\equiv a^2\kappa$, $l'\equiv d^2l\pmod N$. By Lemma~\ref{lem:E} it therefore preserves the exponents. The product \eqref{eq:product} is the Borcherds lift of the vector-valued form built from the $F^{(r,s)}$, and an isometry of the lattice that preserves the input preserves the lift up to a character \cite[Theorem~13.3]{Bor98}; together with the Weyl vector, which is fixed, this shows that $\tPhi_k$ is modular under the image of $\Gamma_0(N)$. The single-centred index is then invariant, because both its definition through the attractor contour and the chamber structure are covariant. We have also checked the invariance directly: for every charge in $\cA$ with $m\le5$ and $n\le57$ whose image under a generator of $\Gamma_0(N)/\{\pm1\}\Gamma_1(N)$, reduced back by $\Gamma_1(N)$, also lies in this box, the two values of $d_*$ computed from \eqref{eq:product} agree exactly ($1120$, $9$ and $12$ pairs for $N=3,5,7$).
+The exchange is the symmetry $\tPhi_k(\rho,\sigma,v)=\tPhi_k(\sigma/N,N\rho,v)$ of the product, which follows from Lemma~\ref{lem:E}. The invariance of $\tPhi_k$ under $\Omega\mapsto A\Omega A^{\mathsf T}$, $A\in\Gamma_0(N)$, with trivial character is Proposition~\ref{prop:gamma0}, proved in Appendix~\ref{app:sym} from Borcherds' theorem \cite[Theorem~13.3]{Bor98}: we identify $\tPhi_k$ with the Borcherds lift of an explicit vector-valued form, determine its Weyl vector and divisor, and show that the character is trivial on parabolic and on elliptic generators. The invariance of $d_*$ is Corollary~\ref{cor:dstar}. We have also checked it directly: for every charge in $\cA$ with $m\le5$ and $n\le57$ whose image under a generator of $\Gamma_0(N)/\{\pm1\}\Gamma_1(N)$, reduced back by $\Gamma_1(N)$, also lies in this box, the two values of $d_*$ computed from \eqref{eq:product} agree exactly ($1120$, $9$ and $12$ pairs for $N=3,5,7$).
 \end{proof}
 
 We define $d_*$ on every charge with $D>0$ through its value at any representative in $\cA$ of its orbit under the group generated by $\Gamma_0(N)$ and the exchange; Proposition~\ref{prop:sym} shows that this is consistent, and Lemma~\ref{lem:redA} below that a representative exists.
@@ -200,7 +200,7 @@ x=\frac{\sqrt D}{m}\ \ge\ x_0:=\frac{\sqrt3}{N},\qquad \theta=\frac{\pi\ell}{m}\
 %%==================================================================
 
 \subsection{Polar data at the two cusps}
-The group $\Gamma_0(N)$ has two cusps, $\infty$ and $0$. At $\infty$ the finite part $\varphi^F_m$ has the expansion $\sum c^F_m(n,\ell)\,p^{n/N}y^\ell$, and we call a coefficient \emph{polar} if $\tilde D=4m\tilde n/N-\tilde\ell^2<0$. At $0$ we use the expansion of $\varphi^F_m|_{-k,m}S$, which is $N^{-(k+2)/2}$ times the finite part of the $m$-th Fourier--Jacobi coefficient of $1/\Phi_k$, where $\Phi_k$ is the companion Siegel form of \cite{JS06,DJS06}: its product has the shape \eqref{eq:product} with $N=1$ and exponents $C_0(\Delta)-C_1(\Delta)+N\,C_1(\Delta)\,[N\mid l]$, where $C_0=\frac{4}{N+1}c_{01}+\frac{2(N-1)}{N+1}h$ and $C_1=\frac{2}{N+1}(c_{01}-h)$ in the notation of the proof of Lemma~\ref{lem:E}.\footnote{This is the statement that the $S$-transform of the twisted-sector genera $F^{(r,s)}$ with $r=0$ are the genera with $s=0$, so that the cusp $0$ of $\Gamma_0(N)$ sees the untwisted sector of the orbifold.} Its polar coefficients are written $c^{S}_m(\tilde n,\tilde\ell)$, $\tilde n\in\Z$, with $\tilde D=4m\tilde n-\tilde\ell^2<0$.
+The group $\Gamma_0(N)$ has two cusps, $\infty$ and $0$. At $\infty$ the finite part $\varphi^F_m$ has the expansion $\sum c^F_m(n,\ell)\,p^{n/N}y^\ell$, and we call a coefficient \emph{polar} if $\tilde D=4m\tilde n/N-\tilde\ell^2<0$. At $0$ we use $\psi_m=\varphi_m|_{-k,m}S$, which is the $m$-th Fourier--Jacobi coefficient of $1/F_S$, $F_S(\Omega)=\sigma^{-k}\tPhi_k(\rho-v^2/\sigma,-1/\sigma,v/\sigma)$ (Appendix~\ref{app:cusp0}). By Lemma~\ref{lem:FS}, $F_S$ is invariant under $\Omega\mapsto A\Omega A^{\mathsf T}$ for all $A\in GL_2(\Z)$ and $1/F_S=-i^{k+2}N^{-(k+2)/2}\bigl(4\pi^2v^2g(\rho)g(\sigma)\bigr)^{-1}(1+O(v^2))$ near $v=0$; so $\psi_m$ has polar part $i^{k+2}N^{-(k+2)/2}\,d(m)g(\sigma)^{-1}\cA_m$ with $\cA_m$ the Appell--Lerch sum of \eqref{eq:polar}, and we write its finite part as $i^{k+2}N^{-(k+2)/2}\sum c^S_m(\tilde n,\tilde\ell)p^{\tilde n}y^{\tilde\ell}$.\footnote{$F_S$ is the Borcherds product \eqref{eq:FSprod} at the level-$N$ cusp, with exponents $C_0-C_1$ on $(1-X)$ and $C_1$ on $(1-X^N)$. In the twisted-sector language this says that the cusp $0$ of $\Gamma_0(N)$ sees the untwisted sector of the orbifold.} Its polar coefficients are written $c^{S}_m(\tilde n,\tilde\ell)$, $\tilde n\in\Z$, with $\tilde D=4m\tilde n-\tilde\ell^2<0$.
 
 The polar coefficients are given by sums over walls. For $\tilde w=\tilde\ell/(2m)$ let $\mathcal W(\tilde w)$ be the set of $G=\sm pqrs\in SL_2(\Z)$ with $r,s\ge1$ and $q/s\le\tilde w<p/r$, and put
 \begin{equation}\label{eq:mG}
@@ -218,7 +218,7 @@ with $d(u)=0$ unless $u$ is an integer $\ge-1$.
 \end{prop}
 
 \begin{proof}
-The polar terms of the finite part are the terms of $\varphi_m$ in the chamber of the attractor point that are not reproduced by $\varphi^P_m$; by the wall-crossing analysis of \cite{CNR21} (for $N=1$ see \cite{CKMRW20}), each wall of marginal stability crossed between the attractor chamber and the chamber $\operatorname{Im}v\to0$ contributes the jump $\ell_G\,d\,d$ of a two-centred bound state of two half-BPS states, the walls being labelled by $G\in\mathcal W(\tilde w)$ and the half-BPS degeneracies by $d$ at the two cusps. We verified both identities exactly against the product formula for every polar index with $m\le6$ and each $N$; the programs are \texttt{walls.py} and \texttt{wallsI.py}.
+This is proved in Appendix~\ref{app:walls}: the coefficient of $1/\tPhi_k$ (resp.\ $1/F_S$) is locally constant in $\operatorname{Im}\Omega$ away from the walls, it equals the finite-part coefficient on the attractor line of the Jacobi form, it vanishes near the cusp $\tilde w$, and each wall contributes the jump of Lemma~\ref{lem:jumpG}. We also verified both identities exactly against the product formulas for every polar index with $m\le6$ and each $N$; the programs are \texttt{walls.py} and \texttt{wallsI.py}.
 \end{proof}
 
 \begin{lem}\label{lem:wallgeom}
@@ -237,51 +237,64 @@ Put $u=p-r\tilde w$ and $u'=s\tilde w-q$. The wall condition and $ps-qr=1$ give 
 \end{proof}
 
 \subsection{The expansion}
-For $\gamma\ge1$ and $\delta$ with $0\le-\delta\le N\gamma-1$ and $\gcd(\gamma,\delta)=1$, let $\alpha\equiv\delta^{-1}\pmod\gamma$ ($\alpha=0$ if $\gamma=1$) and $\beta=(\alpha\delta-1)/\gamma$. The pair is of \emph{type $S$} if $N\mid\delta$ and of \emph{type $T^j$}, $j\equiv-\beta\delta^{-1}\pmod N$, otherwise. Put $\nu_k=k+\frac32$,
+For $\gamma\ge1$ and $\delta$ with $0\le-\delta\le N\gamma-1$ and $\gcd(\gamma,\delta)=1$, let $\alpha\equiv\delta^{-1}\pmod\gamma$ ($\alpha=0$ if $\gamma=1$) and $\beta=(\alpha\delta-1)/\gamma$. The pair is of \emph{type $S$} if $N\mid\delta$ and of \emph{type $T$} otherwise; for type $T$ let $j'\equiv\beta\delta^{-1}\pmod N$. Put $\nu_k=k+\frac32$,
 \[
-W_{\gamma}(\alpha,\delta;\tilde\ell,\ell)=\frac{1}{\sqrt{2m\gamma i}}\sum_{T\bmod\gamma}\e\!\left(\frac{\alpha X^2-2\ell X+\delta\ell^2}{4m\gamma}\right),
+W_{\gamma}(\alpha,\delta;\tilde\ell,\ell)=\frac{1}{\sqrt{2m\gamma i}}\sum_{T\bmod\gamma}\e\!\left(\frac{\alpha X^2-2\ell X+\delta\ell^2}{4m\gamma}\right),\qquad X=\tilde\ell-2mT,
 \]
-with $X=\tilde\ell-2mT$,
-and let $\hat f=d(m)$.
+and, for $A>0$ and real $B$, $\mathfrak B_\nu=(A/B)^{\nu/2}I_\nu(2\sqrt{AB})=\sum_{j\ge0}A^{\nu+j}B^j/(j!\,\Gamma(\nu+j+1))$, an entire function of $B$. The data attached to a pair are
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+&type $T$&type $S$\\
+\midrule
+$\varepsilon$&$\chi_N(\delta)$&$(-1)^k\chi_N(-\beta)\,i^{k+2}$\\
+$c(\nu,\tilde\ell)$&$c^F_m(\tilde n,\tilde\ell)\,\e(-j'\nu)$, $\nu=\tilde n/N$&$c^S_m(\tilde n,\tilde\ell)\,N^{-(k+2)/2}$, $\nu=\tilde n$\\
+$c_*$&$\varepsilon\,d(m)\,\e(j'/N)$&$\varepsilon\,d(m)\,N^{-(k+2)/2}$\\
+$\mu$&$1/N$&$1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+where $\chi_N$ is trivial for $N=3,5$ and $\chi_7(d)=(\frac d7)$, and $\tilde D=4m\nu-\tilde\ell^2$.
 
 \begin{thm}\label{thm:exp}
 For a charge in $\cA$,
 \[
-d_*=\frac{(-1)^\ell\,\e(1/8)}{N}\Bigl(M_\infty+N^{-(k+2)/2}M_S+K_2+K_3\Bigr),
+d_*=(-1)^{\ell+1}\sum_{\gamma\ge1}\sum_{\delta}\bigl(M_{\gamma,\delta}+K_{\gamma,\delta}\bigr),
 \]
-where $M_\infty$ $($resp.\ $M_S)$ is the sum over pairs $(\gamma,\delta)$ of type $T^j$ $($resp.\ $S)$ and over polar indices $(\tilde n,\tilde\ell)$, $|\tilde\ell|\le m$, at the corresponding cusp, of
-\[
-c\,(\tilde n,\tilde\ell)\;\e\!\left(\frac{\alpha\tilde D+\delta D}{4m\gamma}\right)\e(j\tilde n/N)^{[T]}\;W_\gamma(\alpha,\delta;\tilde\ell,\ell)\;\frac{2\pi}{\gamma}\Bigl(\frac{|\tilde D|}{D}\Bigr)^{\nu_k/2}I_{\nu_k}\!\left(\frac{\pi\sqrt{|\tilde D|D}}{m\gamma}\right),
-\]
-and $K_2,K_3$ are the shadow terms
+where
 \begin{align*}
-K_2&=-\sum_{\gamma,\delta}\sqrt{\tfrac{2m}{\gamma}}\,c_\ast\,\e\!\left(\tfrac{\delta D}{4m\gamma}-\tfrac{\alpha\mu}{\gamma}\right)W_\gamma(\alpha,\delta;0,\ell)\Bigl(\frac{4m\mu}{D}\Bigr)^{\frac{k+2}2}I_{k+2}\!\left(\frac{2\pi}{\gamma}\sqrt{\frac{\mu D}{m}}\right),\\
-K_3&=\sum_{\gamma,\delta}\frac{c_\ast}{2\pi\gamma^2}\sum_{h=-m\gamma}^{m\gamma-1}\e\!\left(\frac{\delta D-\alpha(4m\mu+h^2)}{4m\gamma}\right)W_\gamma(\alpha,\delta;h,\ell)\Bigl(\frac{4m\mu}{D}\Bigr)^{\frac{2k+5}4}\mathcal I_{\gamma,h},\\
-\mathcal I_{\gamma,h}&=\int_{-\sqrt{\mu/m}}^{\sqrt{\mu/m}}f_{\gamma,h}(u)\Bigl(1-\frac{mu^2}{\mu}\Bigr)^{\frac{2k+5}4}I_{k+\frac52}\!\left(\frac{2\pi}{\gamma}\sqrt{\frac{(\mu-mu^2)D}{m}}\right)du,
+M_{\gamma,\delta}&=\frac{2\pi}{N\gamma}\,i^{k+\frac12}\varepsilon\sum_{\tilde D<0}c(\nu,\tilde\ell)\,\e\Bigl(\frac{\alpha\tilde D+\delta D}{4m\gamma}\Bigr)W_\gamma(\alpha,\delta;\tilde\ell,\ell)\Bigl(\frac{|\tilde D|}{D}\Bigr)^{\nu_k/2}I_{\nu_k}\Bigl(\frac{\pi\sqrt{|\tilde D|D}}{m\gamma}\Bigr),\\
+K_{\gamma,\delta}&=\frac{i^k}{2\pi N\gamma}\,c_*\,\e\Bigl(\frac{\delta D}{4m\gamma}-\frac{\mu\alpha}{\gamma}\Bigr)\sum_{\substack{h\bmod2m\gamma\\h\equiv\ell\,(2m)}}\e\Bigl(\frac{\delta h^2}{4m\gamma}\Bigr)\mathcal J_{\gamma,h},
 \end{align*}
-with $(c_\ast,\mu)=(\hat fN^{-(k+2)/2},1)$ for type $S$ and $(\hat f\,\e(-j/N),1/N)$ for type $T^j$, and $f_{\gamma,h}(u)=\pi^2/\sinh^2\bigl(\pi(u/\gamma-ih/(2m\gamma))\bigr)$ for $2m\gamma\nmid h$, $f_{\gamma,0}(u)=\pi^2/\sinh^2(\pi u/\gamma)-\gamma^2/u^2$. All sums converge absolutely.
+the sum in $M_{\gamma,\delta}$ running over the polar indices $(\tilde n,\tilde\ell)$, $|\tilde\ell|\le m$, at the cusp of the pair, and
+\[
+\mathcal J_{\gamma,h}=\int_\R\frac{\pi^2\,\mathfrak B_{k+2}(x)}{\sinh^2\bigl(\pi(x+\frac{ih}{2m\gamma})\bigr)}dx\quad(2m\gamma\nmid h),\qquad
+\mathcal J_{\gamma,0}=\int_\R\Bigl(\frac{\pi^2}{\sinh^2\pi x}-\frac1{x^2}\Bigr)\mathfrak B_{k+2}(x)\,dx-8\pi m\gamma\int_0^\infty\mathfrak B_{k+3}(x)\,dx,
+\]
+with $\mathfrak B_\nu(x)$ taken at $A=2\pi\mu/\gamma$ and $B=\pi\bigl(\frac{D}{2m\gamma}-2m\gamma x^2\bigr)$. All sums and integrals converge absolutely.
 \end{thm}
 
 \begin{proof}
-Write $\varphi^F_m=\sum_{\ell\bmod 2m}h_\ell(\sigma)\vartheta_{m,\ell}(\sigma,v)$. The completion $\widehat{\varphi}^F_m=\varphi^F_m-\hat f\,g(\sigma/N)^{-1}\cdot\mathcal R_m$, where $\mathcal R_m$ is the non-holomorphic Eichler integral of the unary theta series of weight $\frac32$ attached to the Appell--Lerch sum in \eqref{eq:polar} \cite[\S8]{DMZ12}, transforms like a Jacobi form of weight $-k$ and index $m$ for $\Gamma_0(N)$. So $(h_\ell)$ is a vector-valued mixed mock modular form of weight $-k-\frac12$ whose shadow is $\hat f\,g^{-1}$ times a theta series. The circle method for such forms, in the form developed by Bringmann and Manschot \cite{BM13a} and by Ferrari and Reys \cite{FR17}, gives the coefficient $c^F_m(n,\ell)$ as a sum over the Farey arcs at all cusps: the holomorphic part contributes the Bessel sums $M_\infty$ and $M_S$, whose input is the polar data of Proposition~\ref{prop:walls}, and the non-holomorphic correction contributes $K_2$, the image of the constant term of the Eichler integral, and $K_3$, the image of its remaining part; the kernel $f_{\gamma,h}$ is the second derivative of $\log\sinh$ produced by the double pole of the Appell--Lerch sum. The arcs at $\infty$ are indexed by $(\gamma,\delta)$ of type $T^j$, those at $0$ by type $S$, and the factor $N^{-(k+2)/2}$ is the width normalisation of the cusp $0$. For $N=2$ this is the expansion used in \cite{Bha26a}, and the proof for prime $N$ is the same with the coset representatives above. Absolute convergence follows from $\nu_k>\frac32$ and from Lemma~\ref{lem:bessel}(c) below, which gives $\gamma^{-\nu_k}$ decay of the Bessel factors. As a check, the right-hand side, truncated at $\gamma\le10$, reproduces the exact values computed from \eqref{eq:product} to a relative accuracy between $3\cdot10^{-5}$ and $2\cdot10^{-7}$ for every charge tested ($m\in\{2,3\}$, $n\in\{12,40\}$, $0\le\ell\le m$), while the Bessel sums without $K_2,K_3$ are off by up to $4\%$ (Table~\ref{tab:check}); the residual error is the truncation in $\gamma$.
+Appendix~\ref{app:circle}. As a check, the right-hand side, truncated at $\gamma\le8$ (and $\gamma\le5$ for the $K$-terms), reproduces the exact values computed from \eqref{eq:product} to a relative accuracy between $10^{-14}$ and $10^{-8}$ for every charge tested, while the Bessel sums $M$ alone are off by up to $3\%$ (Table~\ref{tab:check}); the residual error is the truncation in $\gamma$ (\texttt{myformula.py}).
 \end{proof}
 
 \begin{table}[t]
 \centering
-\caption{The expansion of Theorem~\ref{thm:exp}, truncated at $\gamma\le10$ (and $\gamma\le5$ for $K_2,K_3$), divided by the exact value of $d_*$.}
+\caption{The expansion of Theorem~\ref{thm:exp}, truncated at $\gamma\le8$ (and $\gamma\le5$ for the $K$-terms), compared with the exact value of $d_*$: the ratio for the Bessel sums $M$ alone, and the relative error of the full sum.}
 \label{tab:check}
-\begin{tabular}{ccrrcc}
+\begin{tabular}{ccrcc}
 \toprule
-$N$&$(m,n,\ell)$&$d_*$&&$M$ only&with $K_2,K_3$\\
+$N$&$(m,n,\ell)$&$|d_*|$&$M$ only&error with $K$\\
 \midrule
-3&$(2,12,0)$&$11471051808$&&$1.0089$&$0.9999994$\\
-3&$(2,12,1)$&$7115794164$&&$0.9940$&$1.0000007$\\
-5&$(2,12,0)$&$74096720$&&$1.0224$&$0.999998$\\
-5&$(2,12,1)$&$35906480$&&$0.9843$&$1.000003$\\
-7&$(2,12,0)$&$4419480$&&$1.0335$&$0.999995$\\
-7&$(2,40,0)$&$10757416456632$&&$1.0013$&$0.99999988$\\
-7&$(2,40,2)$&$2248157286084$&&$1.0009$&$0.99999983$\\
-7&$(3,12,1)$&$14351445$&&$0.9902$&$1.000003$\\
+3&$(2,12,0)$&$11471051808$&$1.0089$&$1\cdot10^{-14}$\\
+3&$(2,12,1)$&$7115794164$&$0.9940$&$3\cdot10^{-13}$\\
+5&$(2,12,0)$&$74096720$&$1.0224$&$4\cdot10^{-10}$\\
+5&$(2,12,1)$&$35906480$&$0.9843$&$6\cdot10^{-10}$\\
+5&$(3,12,1)$&$402699780$&$0.9950$&$2\cdot10^{-11}$\\
+7&$(2,12,0)$&$4419480$&$1.0335$&$3\cdot10^{-10}$\\
+7&$(2,40,0)$&$10757416456632$&$1.0013$&$9\cdot10^{-15}$\\
+7&$(2,40,2)$&$2248157286084$&$1.0009$&$6\cdot10^{-14}$\\
+7&$(3,12,1)$&$14351445$&$0.9902$&$2\cdot10^{-9}$\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -317,7 +330,7 @@ The largest Bessel argument in Theorem~\ref{thm:exp} belongs to $\gamma=1$, $\de
 \end{equation}
 
 \begin{prop}\label{prop:lead}
-The part of $\frac{(-1)^\ell\e(1/8)}{N}N^{-(k+2)/2}M_S$ with $\gamma=1$ and walls with $r=s=1$ equals $\cE\cdot\cL$, where
+The part of $(-1)^{\ell+1}M_{1,0}$ coming from walls with $r=s=1$ equals $\cE\cdot\cL$, where
 \begin{equation}\label{eq:Lm}\begin{gathered}
 \cL=\cL_m(x,\theta)=\sum_{(A,B)\in\mathcal P_m}d(A-1)\,d(B-1)\cos\bigl(\theta(A-B)\bigr)\,\rho_{AB},\\
 \rho_{AB}=\frac{k_{AB}}{m+2}\Bigl(\frac{t_{AB}}{t_0}\Bigr)^{\nu_k/2}\frac{I_{\nu_k}(c\sqrt{t_{AB}})}{I_{\nu_k}(c\sqrt{t_0})},
@@ -326,7 +339,7 @@ with $k_{AB}=m+2-A-B$, $t_{AB}=k_{AB}^2-4(A-1)(B-1)=t_0-2mS+y^2$, $S=A+B$, $y=A-
 \end{prop}
 
 \begin{proof}
-For $r=s=1$, $G=\sm{q+1}q11$ with $q=\lfloor\tilde w\rfloor$, and Lemma~\ref{lem:wallgeom} gives $\ell_G=m-a-b$ and $|\tilde D|=\ell_G^2-4ab$. Put $A=a+1$, $B=b+1$. The polar index is recovered from $(a,b)$ by $\tilde\ell\equiv m+b-a$ modulo $2m$, and $(\gamma,\delta)=(1,0)$ gives $\alpha=0$, so the phase is $W_1=(2mi)^{-1/2}\e(-\ell\tilde\ell/(2m))$. Pairing $(A,B)$ with $(B,A)$, which maps $\tilde\ell\mapsto-\tilde\ell$ modulo $2m$, the factor $(-1)^\ell\e(1/8)(2mi)^{-1/2}\e(-\ell(m+y)/(2m))$ combines to $(2m)^{-1/2}\cos(\theta y)$ after the sum over the pair. The remaining factors are those of \eqref{eq:Ecal} and \eqref{eq:Lm}.
+For $r=s=1$, $G=\sm{q+1}q11$ with $q=\lfloor\tilde w\rfloor$, and Lemma~\ref{lem:wallgeom} gives $\ell_G=m-a-b$ and $|\tilde D|=\ell_G^2-4ab$. Put $A=a+1$, $B=b+1$. The polar index is recovered from $(a,b)$ by $\tilde\ell\equiv m+b-a$ modulo $2m$, and $(\gamma,\delta)=(1,0)$ gives $\alpha=0$, so the phase is $W_1=(2mi)^{-1/2}\e(-\ell\tilde\ell/(2m))$, and $i^{k+\frac12}\varepsilon=i^{k+\frac12}(-1)^ki^{k+2}=-\e(1/8)$. Pairing $(A,B)$ with $(B,A)$, which maps $\tilde\ell\mapsto-\tilde\ell$ modulo $2m$, the factor $(-1)^\ell\e(1/8)(2mi)^{-1/2}\e(-\ell(m+y)/(2m))$ combines to $(2m)^{-1/2}\cos(\theta y)$ after the sum over the pair. The remaining factors are those of \eqref{eq:Ecal} and \eqref{eq:Lm}.
 \end{proof}
 
 \begin{prop}\label{prop:limit}
@@ -366,14 +379,18 @@ Lemma~\ref{lem:bessel}(a) with $u=c\sqrt{t_{AB}}$, $v=c\sqrt{t_0}$ gives $\rho_{
 \section{The Remaining Terms}\label{sec:err}
 %%==================================================================
 
-Write $d_*=\cE(\cL+R)$. By Theorem~\ref{thm:exp} and Proposition~\ref{prop:lead}, $R$ consists of four groups of terms: the type-$S$ terms with $\gamma=1$ and walls with $rs\ge2$ ($R_1$), the type-$T$ terms with $\gamma=1$ ($R_2$), all terms with $\gamma\ge2$ ($R_3$), and the shadow terms $K_2,K_3$ ($R_4$). Every one of them is a Bessel term of Theorem~\ref{thm:exp} divided by $\cE$, and $|W_\gamma|\le\sqrt{\gcd(m,\gamma)/m}$.\footnote{$W_\gamma$ is $(2m\gamma)^{-1/2}$ times a quadratic Gauss sum over $\Z/\gamma$ with leading coefficient $\alpha m$ after the substitution $X=\tilde\ell-2mT$, and such a sum has modulus at most $\sqrt{2\gamma\gcd(m,\gamma)}$.} Writing a wall term through Lemma~\ref{lem:wallgeom}, the term attached to $(\gamma,\delta)$, $G$, $a=a_G$, $b=b_G$ is at most
+Write $d_*=\cE(\cL+R)$. By Theorem~\ref{thm:exp} and Proposition~\ref{prop:lead}, $R$ consists of four groups of terms: the type-$S$ terms with $\gamma=1$ and walls with $rs\ge2$ ($R_1$), the type-$T$ terms with $\gamma=1$ ($R_2$), all terms with $\gamma\ge2$ ($R_3$), and the terms $K_{\gamma,\delta}$ ($R_4$). Every one of them is a Bessel term of Theorem~\ref{thm:exp} divided by $\cE$, and $|W_\gamma|\le\sqrt{\gcd(m,\gamma)/m}$.\footnote{$W_\gamma$ is $(2m\gamma)^{-1/2}$ times a quadratic Gauss sum over $\Z/\gamma$ with leading coefficient $\alpha m$ after the substitution $X=\tilde\ell-2mT$, and such a sum has modulus at most $\sqrt{2\gamma\gcd(m,\gamma)}$.} Writing a wall term through Lemma~\ref{lem:wallgeom}, the term attached to $(\gamma,\delta)$, $G$, $a=a_G$, $b=b_G$ is at most
 \begin{equation}\label{eq:wallterm}
 \sqrt2\,\omega\,|d(a)d(b)|\,B_\gamma(t),\qquad B_\gamma(t)=\Bigl(\frac{t}{t_0}\Bigr)^{\nu_k/2}\frac{I_{\nu_k}(c\sqrt t/\gamma)}{I_{\nu_k}(c\sqrt{t_0})},
 \end{equation}
 times the number of pairs $(\gamma,\delta)$ of the relevant type, where $\omega=1$ for type $S$ and $\omega=N^{(k+2)/2}$ for type $T$ (the ratio of the cusp normalisations), the factor $\sqrt2$ comes from $|\ell_G|\le\sqrt2(m+2)$, and for type $T$ one of $a,b$ lies in $\frac1N\Z$ with $d(a)$ read as $d(Na)$.
 
 \subsection{Per-charge bounds}
-For $m<m_U$ (Table~\ref{tab:err}) we evaluate the four groups of bounds \eqref{eq:wallterm} directly: all walls with $r,s\le2m$ for type $S$ and $r,s\le\lceil2m\sqrt N\rceil+2$ for type $T$ (Lemma~\ref{lem:wallgeom} shows that larger $r$ or $s$ give no wall), all $\gamma\le40$, and the tail $\gamma>40$ through $B_\gamma\le(40/\gamma)^{\nu_k}B_{40}$, which follows from Lemma~\ref{lem:bessel}(a); for $R_4$ we use $\sum_h\sup_u|f_{\gamma,h}(u)|\le\frac{4\pi^2m^2\gamma^2}{3}$, which follows from $|\sinh(\pi(u-i\eta))|\ge|\sin\pi\eta|$ and $\sum_{0<|h|<m\gamma}\sin^{-2}(\pi h/(2m\gamma))\le\frac{(2m\gamma)^2}{3}$. By Lemma~\ref{lem:tail} and Lemma~\ref{lem:bessel}(e), every bound is decreasing in $x$, so we evaluate it at $x_{\min}(m)=\max(x_0,\sqrt{D_0}/m)$, where $D_0$ is the bound of the exact computation in Section~\ref{sec:exact}. The program is \texttt{errterms.py}.
+For $m<m_U$ (Table~\ref{tab:err}) we evaluate the four groups of bounds \eqref{eq:wallterm} directly: all walls with $r,s\le2m$ for type $S$ and $r,s\le\lceil2m\sqrt N\rceil+2$ for type $T$ (Lemma~\ref{lem:wallgeom} shows that larger $r$ or $s$ give no wall), all $\gamma\le40$, and the tail $\gamma>40$ through $B_\gamma\le(40/\gamma)^{\nu_k}B_{40}$, which follows from Lemma~\ref{lem:bessel}(a); for $R_4$ we bound each $K_{\gamma,\delta}$ by
+\[
+\frac{|c_*|}{2\pi N\gamma}\Bigl[\bigl(\pi^2\Sigma_{m,\gamma}+2\pi\bigr)\mathfrak B^+_{k+2}+8\pi m\gamma\bigl(x'\mathfrak B^+_{k+3}+\tau_{k+3}\bigr)\Bigr],\qquad \Sigma_{m,\gamma}=2m\gamma+2\gamma(1+\log\gamma),
+\]
+where $\mathfrak B^+_\nu$ is $\mathfrak B_\nu$ at $B_0=\pi D/(2m\gamma)$, $x'=\sqrt D/(2m\gamma)$, and $\tau_{k+3}$ bounds $\int_{x'}^\infty|\mathfrak B_{k+3}|$.\footnote{Since $\mathfrak B_\nu$ has positive Taylor coefficients in $B$, $|\mathfrak B_\nu(B)|\le\mathfrak B_\nu(B_0)$ for $-B_0\le B\le B_0$; for $B<0$ it equals $(A/|B|)^{\nu/2}J_\nu(2\sqrt{A|B|})$, which is at most $A^\nu/\Gamma(\nu+1)\le\mathfrak B_\nu(B_0)$ and, by Landau's bound $|J_\nu(y)|\le0.7858\,y^{-1/3}$ \cite{Lan00}, decays like $|B|^{-\nu/2-1/6}$. Further $\int_\R|\pi^2/\sinh^2(\pi(x+i\eta))|dx\le\pi^2/|\sin\pi\eta|$, the sum of $1/|\sin(\pi h/2m\gamma)|$ over the $\gamma$ admissible $h\not\equiv0$ is at most $\Sigma_{m,\gamma}$, and $\int_\R|\pi^2/\sinh^2(\pi x)-x^{-2}|dx=2\pi$.} The program is \texttt{knew.py}. By Lemma~\ref{lem:tail} and Lemma~\ref{lem:bessel}(e), every bound is decreasing in $x$, so we evaluate it at $x_{\min}(m)=\max(x_0,\sqrt{D_0}/m)$, where $D_0$ is the bound of the exact computation in Section~\ref{sec:exact}. The program is \texttt{errterms.py}.
 
 \subsection{A uniform bound}
 \begin{lem}\label{lem:sqrt-t}
@@ -396,7 +413,7 @@ Let $\mathrm{Db}(X)=1+\sum_{0\le a\le X}d(a)$ and $\mathrm{Fb}(\lambda)=1+\exp(\
 \[
 \sum_{a,b}|d(a)d(b)|B_\gamma(t)\le\sqrt\gamma\,e^{-c(\sqrt{t_0}-(mg+3\sqrt m)/\gamma)}\min\Bigl(\mathrm{Fb}\bigl(\tfrac{cs}{r\gamma}\bigr),\mathrm{Db}\bigl(\tfrac m{s^2}\bigr)\Bigr)\min\Bigl(\mathrm{Fb}\bigl(\tfrac{cr}{s\gamma}\bigr),\mathrm{Db}\bigl(\tfrac m{r^2}\bigr)\Bigr),
 \]
-using $B_\gamma(t)\le\sqrt\gamma\,e^{-c(\sqrt{t_0}-\sqrt t/\gamma)}$ from Lemma~\ref{lem:bessel}(a), $a\le m/s^2$, $b\le m/r^2$ and Lemma~\ref{lem:dbound}; the same holds for type $T$ with $\frac{cr}{Ns\gamma}$ and $\mathrm{Db}(Nm/r^2)$ in the factor carrying the fractional variable. For $rs\ge4N$ we drop the gains and use $mg\le m/(4N)$. For $\gamma>\Gamma:=\lceil c(m+3\sqrt m)\rceil$ we use Lemma~\ref{lem:bessel}(c),(d) instead, which gives decay $\gamma^{1/2-\nu_k}$, summable because $\nu_k>\frac32$. Adding the four groups gives an explicit function $U(m)$, computed by \texttt{uniform.py}, with $|R|\le U(m)$ for all $x\ge x_0$; we evaluate it at every $m$ from $m_U$ to $1460$. For larger $m$ we drop all gains: every term of $R_1,R_2,R_3$ has $g/\gamma\le\frac12$, hence the factor $e^{-c(m+2-2/m-m/2-3\sqrt m)}$, the weights are bounded by $\mathrm{Db}(m)^2\le 4(m/\kappa_0)e^{2\kappa_0+4\sqrt{\kappa_0m}}$ (by Lemma~\ref{lem:dbound} with $1-q=\sqrt{\kappa_0/m}$), and the numbers of walls and of pairs $(\gamma,\delta)$ are polynomial in $m$; the shadow terms carry $e^{-c(m+2-2/m-2\sqrt m)}$ and the weight $d(m)\le\mathrm{Db}(m)$. The resulting closed-form bound (\texttt{crude.py}) is below $10^{-8}$ and decreasing for $m\ge663$, $987$, $1302$ ($N=3,5,7$), since its logarithmic derivative is $-c_0/2+O(m^{-1/2})$ and is negative there.
+using $B_\gamma(t)\le\sqrt\gamma\,e^{-c(\sqrt{t_0}-\sqrt t/\gamma)}$ from Lemma~\ref{lem:bessel}(a), $a\le m/s^2$, $b\le m/r^2$ and Lemma~\ref{lem:dbound}; the same holds for type $T$ with $\frac{cr}{Ns\gamma}$ and $\mathrm{Db}(Nm/r^2)$ in the factor carrying the fractional variable. For $rs\ge4N$ we drop the gains and use $mg\le m/(4N)$. For $\gamma>\Gamma:=\lceil c(m+3\sqrt m)\rceil$ we use Lemma~\ref{lem:bessel}(c),(d) instead, which gives decay $\gamma^{1/2-\nu_k}$, summable because $\nu_k>\frac32$. Adding the four groups gives an explicit function $U(m)$, computed by \texttt{uniform.py}, with $|R|\le U(m)$ for all $x\ge x_0$; we evaluate it at every $m$ from $m_U$ to $1460$. For larger $m$ we drop all gains: every term of $R_1,R_2,R_3$ has $g/\gamma\le\frac12$, hence the factor $e^{-c(m+2-2/m-m/2-3\sqrt m)}$, the weights are bounded by $\mathrm{Db}(m)^2\le 4(m/\kappa_0)e^{2\kappa_0+4\sqrt{\kappa_0m}}$ (by Lemma~\ref{lem:dbound} with $1-q=\sqrt{\kappa_0/m}$), and the numbers of walls and of pairs $(\gamma,\delta)$ are polynomial in $m$; the shadow terms carry $e^{-c(m+2-2/m-2\sqrt m)}$, a polynomial factor from the bound above, and the weight $d(m)\le\mathrm{Db}(m)$. The resulting closed-form bound (\texttt{crude.py}) is below $10^{-8}$ and decreasing for $m\ge663$, $987$, $1302$ ($N=3,5,7$), since its logarithmic derivative is $-c_0/2+O(m^{-1/2})$ and is negative there.
 
 \begin{table}[t]
 \centering
@@ -565,6 +582,260 @@ This research received no external funding.
 
 \subsection*{Conflicts of interest}
 The author declares no conflicts of interest.
+%%==================================================================
+\appendix
+\section{The Symmetries of the Partition Function}\label{app:sym}
+%%==================================================================
+
+This appendix proves Proposition~\ref{prop:sym} and the facts about the cusp $0$ used in Section~\ref{sec:exp}. The one outside input is Borcherds' theorem on automorphic products \cite[Theorem~13.3]{Bor98}; everything specific to the CHL models is derived here.
+
+\subsection{The lattice and the input form}
+Write a point of the Siegel upper half-space of degree two as $\Omega=\sm\rho vv\sigma$, and a charge, or an exponent of \eqref{eq:product}, as the symmetric matrix
+\[
+T=T(l,\kappa,j)=\begin{pmatrix}l&j/2\\ j/2&\kappa/N\end{pmatrix},\qquad \operatorname{tr}(T\Omega)=l\rho+\tfrac{\kappa}{N}\sigma+jv,\qquad \det T=\frac{\kappa l}N-\frac{j^2}4 .
+\]
+The matrices $T(l,\kappa,j)$ with $l,\kappa,j\in\Z$ form the dual $K'$ of the even lattice $K=\{T(l,\kappa,j):N\mid l,\ N\mid\kappa,\ 2\mid j\}$ for the quadratic form $q=\det$, and $K\cong U(N)\oplus A_1(-1)$ has signature $(1,2)$. Put $L=U\oplus K$, of signature $(2,3)$. Then $L'/L=K'/K\cong(\Z/N)^2\times\Z/2$, the class of $T(l,\kappa,j)$ being $(r,t,b)=(\kappa,l,j)\bmod(N,N,2)$, with $q(r,t,b)\equiv rt/N-b^2/4\pmod1$.
+
+Decompose the twisted genera of \eqref{eq:genera} as $F^{(r,s)}(\tau,z)=\sum_{b\in\{0,1\}}h^{(r,s)}_b(\tau)\vartheta_{1,b}(\tau,z)$ \cite[\S5]{EZ85}, where $\vartheta_{1,b}=\sum_{j\equiv b\,(2)}q^{j^2/4}\zeta^j$, so that $h^{(r,s)}_b=\sum_\Delta c^{(r,s)}_b(\Delta)q^{\Delta/4}$. Define $F=\sum_{(r,t,b)}F_{r,t,b}\,\mathfrak e_{r,t,b}$ by
+\[
+F_{r,t,b}(\tau)=\sum_{s\bmod N}\e(-st/N)\,h^{(r,s)}_b(\tau).
+\]
+By construction the coefficient of $q^{\det T}$ in $F_{r,t,b}$, for $T=T(l,\kappa,j)$ in the class $(r,t,b)$, is $E(\kappa,l,j)$.
+
+\begin{lem}\label{lem:cov}
+For $\gamma\in SL_2(\Z)$, $F^{(r,s)}|_{0,1}\gamma=F^{(r',s')}$ with $(r',s')=(r,s)\gamma$.
+\end{lem}
+
+\begin{proof}
+It suffices to treat $T=\sm1101$ and $S=\sm0{-1}10$. For $T$, $E_N((\tau+1+t)/N)$ is the function for $t+1$, so $F^{(r,rt)}|T=F^{(r,r(t+1))}$, and $F^{(0,s)}|T=F^{(0,s)}$. For $S$ we use $\pmi|_{-2,1}S=\pmi$, $\pz|_{0,1}S=\pz$ and the identity
+\[
+E_N(-1/\tau)=-\frac{\tau^2}{N}E_N(\tau/N),
+\]
+which follows from $E_2(-1/\tau)=\tau^2E_2(\tau)+\frac{6\tau}{\pi i}$ applied to $\tau$ and to $\tau/N$.\footnote{One gets $NE_2(-N/\tau)=\frac{\tau^2}NE_2(\tau/N)+\frac{6\tau}{\pi i}$, and subtracting $E_2(-1/\tau)$ removes the non-modular terms.} It gives $F^{(0,s)}|S=F^{(s,0)}$ and, with $\tau\mapsto N\tau$, $F^{(r,0)}|S=F^{(0,-r)}$. For $r,t\not\equiv0$ choose $t'$ with $tt'\equiv-1\pmod N$; the matrix $\gamma_0=\sm{t}{-(tt'+1)/N}{N}{-t'}\in\Gamma_0(N)$ satisfies $\gamma_0\bigl(\frac{\tau+t'}N\bigr)=\frac{t\tau-1}{N\tau}$ with automorphy factor $\tau$, so $E_N\bigl(\frac{-1/\tau+t}N\bigr)=\tau^2E_N\bigl(\frac{\tau+t'}N\bigr)$ and $F^{(r,rt)}|S=F^{(rt,-r)}$. In every case $(r',s')=(s,-r)=(r,s)S$.
+\end{proof}
+
+\begin{lem}\label{lem:input}
+$F$ is a weakly holomorphic modular form of weight $-\frac12$ for the Weil representation $\rho_L$. Its principal part is $2q^{-1/4}\mathfrak e_{0,0,1}$ for $N=3$; for $N=5$ and $N=7$ one adds $-\frac{48}{N^2-1}q^{1/N-1/4}\mathfrak e_{r,t,1}$ for every class with $rt\equiv1\pmod N$. The constant term of $F_{0,0,0}$ is $2k$.
+\end{lem}
+
+\begin{proof}
+The theta decomposition turns the index-one Jacobi transformation law into the dual Weil representation of $A_1$, which is the Weil representation of $A_1(-1)$ \cite[Theorem~5.1]{EZ85}. On the $(r,t)$ part, $T$ acts by $F_{r,t,b}\mapsto\e(rt/N)F_{r,t,b}$, because $h^{(r,s)}_b(\tau+1)=\e(-b^2/4)h^{(r,s+r)}_b(\tau)$ by Lemma~\ref{lem:cov}, and $S$ acts by the finite Fourier transform: by Lemma~\ref{lem:cov},
+\[
+\frac1N\sum_{r',t'}\e\Bigl(-\frac{rt'+r't}{N}\Bigr)F_{r',t',b}=\sum_{r'}\e(-r't/N)\,h^{(r',-r)}_b=\sum_{s}\e(-st/N)\,h^{(r,s)}_b\big|S ,
+\]
+which is the action of $\rho_{U(N)}(S)$. So $F$ transforms with $\rho_{U(N)}\otimes\rho_{A_1(-1)}=\rho_L$. For the principal part, the discriminants $\Delta=4\det T$ that occur are $\Delta_0+4a/N$ with $\Delta_0\ge-1$ a discriminant of $\pmi$ or $\pz$ and $a\ge0$ the exponent of $q^{1/N}$ in $E_N(\tau/N)$; the negative ones are $-1$ and, for $N>4$, $4/N-1$. The values of $E$ at these points are read off from the case analysis in the proof of Lemma~\ref{lem:E}: at $\Delta=-1$ one has $c_{01}=h=1$, so $E=2$ on $(0,0,1)$ and $E=0$ on the other classes with $rt\equiv0$; at $\Delta=4/N-1$ one has $c_{01}=0$ and $\tilde h=24/(N-1)$, so $E=-48/(N^2-1)$. Finally $c_{01}(0)=10$ and $h(0)=-2$ give $E=\frac{44-4N}{N+1}=2k$ on $(0,0,0)$ at $\Delta=0$.
+\end{proof}
+
+\subsection{The Borcherds product}
+For a primitive isotropic $z\in L$ and $z'\in L'$ with $(z,z')=1$, Borcherds' theorem \cite[Theorem~13.3]{Bor98} attaches to $F$ a meromorphic function $\Psi$ on the symmetric domain of $L$ with the following properties: (i) $\Psi(gZ)=\chi(g)j(g,Z)^{k}\Psi(Z)$ for all $g\in O^+(L,F)$, the subgroup of $O^+(L)$ fixing $F$, with a character $\chi$ of finite order, the weight being $c(0,0)/2=k$; (ii) the divisor of $\Psi$ is $\frac12\sum_\lambda\sum_{x>0}c(x\lambda,q(x\lambda))\lambda^\perp$, over $\lambda\in L'$ with $q(\lambda)<0$; (iii) near the cusp of $z$, in a Weyl chamber $W$, $\Psi$ is a product with an explicit Weyl vector, given below in each case. At the cusp of the summand $U$, in the tube coordinates $\Omega$ of $K\otimes\C$, the product is
+\begin{equation}\label{eq:BorProd}
+\Psi(\Omega)=\e\bigl(A\rho+B\tfrac\sigma N+Cv\bigr)\prod_{T\in K',\ (T,W)>0}\bigl(1-\e(\operatorname{tr}T\Omega)\bigr)^{c(T,\det T)} .
+\end{equation}
+The coefficient $c(T,\det T)=E(\kappa,l,j)$ vanishes unless $\kappa l\ge0$: if $\kappa l<0$ then $4\det T\le-4/N-j^2$, which is neither $-1$ nor $4/N-1$ for odd $N$. So \eqref{eq:BorProd} runs over the same set as \eqref{eq:product}, and $\Psi$ agrees with $\tPhi_k$ once we show $(A,B,C)=(1,1,1)$.
+
+Three elements of $O^+(L)$ act on the tube domain linearly and fix the vectors $z,z'$ of $U$, so that $j(g,\Omega)=1$: the reflection $v\mapsto-v$, the exchange $(\rho,\sigma)\mapsto(\sigma/N,N\rho)$, and the maps $\Omega\mapsto A\Omega A^{\mathsf T}$ with $A\in\Gamma_0(N)$. They preserve $K'$ (for the last, write $A=\sm a{c'}{Nb}d$; then $A^{\mathsf T}T(l,\kappa,j)A$ again has integral $l,\kappa,j$), hence $K$. On $L'/L$ the first changes nothing, the second exchanges $r$ and $t$, and the third multiplies $(r,t)$ by $(d^2,a^2)$ and fixes $b$. By Lemma~\ref{lem:E}, $F_{r,t,b}$ depends only on $q(r,t,b)$, on $b$ and on the unordered pair $\{[r=0],[t=0]\}$, so all three fix $F$. Moreover every element of $O(L'/L)$ preserves these data, so $O^+(L,F)=O^+(L)$.
+
+\begin{lem}\label{lem:weyl}
+$(A,B,C)=(1,1,1)$, so $\Psi=\tPhi_k$. The characters of the reflection, of the exchange and of $\Omega\mapsto A\Omega A^{\mathsf T}$ for $A=\sm10N1$ and $A=\sm1101$ are trivial. Near $v=0$,
+\begin{equation}\label{eq:nearv0}
+\tPhi_k(\rho,\sigma,v)=-4\pi^2v^2g(\rho)g(\sigma/N)\bigl(1+O(v^2)\bigr),
+\end{equation}
+and the first Fourier--Jacobi coefficients are $\tPhi_k=\e(\sigma/N)\pmi(N\rho,v)g(\rho)+O(\e(2\sigma/N))$ and $\tPhi_k=\e(\rho)\pmi(\sigma,v)g(\sigma/N)+O(\e(2\rho))$.
+\end{lem}
+
+\begin{proof}
+Split \eqref{eq:BorProd} into the factor $(1-y^{-1})^2$ (the only one with $\kappa=l=0$, since $c=2$ at $(0,0,\pm1)$ and $c=0$ at $(0,0,\pm j)$, $j\ge2$) and the rest $R$, which converges near $\operatorname{Im}v=0$ on both sides and is even in $v$ because $E(\kappa,l,j)=E(\kappa,l,-j)$. By the identity theorem the formula $\Psi=\e(A\rho+B\sigma/N+Cv)(1-y^{-1})^2R$ holds on both sides of the wall $\operatorname{Im}v=0$. The reflection then gives $\Psi(\rho,\sigma,-v)=\e((2-2C)v)\Psi(\rho,\sigma,v)$, and (i) forces $C=1$ with trivial character. The product is symmetric under $\kappa\leftrightarrow l$ (Lemma~\ref{lem:E}), so the exchange forces $A=B$ with trivial character.
+
+For the Fourier--Jacobi coefficient in $x=\e(\sigma/N)$, collect the factors with $\kappa=0$. There $4\det T=-j^2$, and the proof of Lemma~\ref{lem:input} gives $E(0,l,0)=2k$ and $E(0,l,\pm1)=2$ if $N\mid l$, and $E(0,l,0)=k+2$, $E(0,l,\pm1)=0$ otherwise. With $Q=\e(N\rho)$ and the product formula for $\pmi=\theta_1^2/\eta^6$ this gives
+\[
+\prod_{\kappa=0}=(1-y^{-1})^2\prod_{l\ge1}(1-q^l)^{k+2}\prod_{l\ge1}(1-Q^l)^{k-2}(1-Q^ly)^2(1-Q^l/y)^2=y^{-1}q^{-1}\pmi(N\rho,v)\,g(\rho),
+\]
+so $\Psi=x^B\e((A-1)\rho)\pmi(N\rho,v)g(\rho)+O(x^{B+1})$. The map $A=\sm10N1$ sends $(\rho,\sigma,v)$ to $(\rho,\sigma+2Nv+N^2\rho,v+N\rho)$, hence $x\mapsto xy^2Q$, while $\pmi(N\rho,v+N\rho)=Q^{-1}y^{-2}\pmi(N\rho,v)$. Comparing leading coefficients in (i) gives $y^{2B-2}Q^{B-1}=\chi$, so $B=1$ and $\chi=1$; then $A=B=1$. The coefficient in $\e(\rho)$ follows by the exchange, and the same comparison for $A=\sm1101$, which sends $(\rho,\sigma,v)$ to $(\rho+2v+\sigma,\sigma,v+\sigma)$, shows that its character is trivial.
+
+For \eqref{eq:nearv0}: $(1-y^{-1})^2y=(2i\sin\pi v)^2$, the factors with $\kappa=0$ or $l=0$ give $q^{-1}g(\rho)x^{-1}g(\sigma/N)$ at $v=0$, and for $\kappa l>0$ the exponents add up to $\sum_jE(\kappa,l,j)=0$, because $\sum_jc^{(r,s)}_b(4\kappa l/N-j^2)$ is the coefficient of $q^{\kappa l/N}$ in $F^{(r,s)}(\tau,0)$, and $F^{(r,s)}(\tau,0)$ is constant since $\pz(\tau,0)=12$ and $\pmi(\tau,0)=0$. Evenness removes the term of order $v^3$.
+\end{proof}
+
+\subsection{The group $\Gamma_0(N)$}
+\begin{prop}\label{prop:gamma0}
+For every $A\in\Gamma_0(N)$, $\tPhi_k(A\Omega A^{\mathsf T})=\tPhi_k(\Omega)$. Also $\tPhi_k(\rho,\sigma,-v)=\tPhi_k(\rho,\sigma,v)$ and $\tPhi_k(\sigma/N,N\rho,v)=\tPhi_k(\rho,\sigma,v)$.
+\end{prop}
+
+\begin{proof}
+The last two statements are in Lemma~\ref{lem:weyl}. The map $A\mapsto\chi(A)$ is a character of $\Gamma_0(N)$, trivial on $-1$ (which acts trivially), on $\sm1101$ and on $\sm10N1$ (Lemma~\ref{lem:weyl}). The stabilisers of the two cusps of $\Gamma_0(N)$ are generated by these and $-1$, so $\chi$ is trivial on every parabolic element. For $N=3,5,7$ the group $\Gamma_0(N)/\{\pm1\}$ has genus $0$, two cusps, and $(\varepsilon_2,\varepsilon_3)=(0,1),(2,0),(0,2)$ elliptic points of orders two and three \cite[\S1.6]{Shi71}, so it has a presentation with generators $x_1,\dots,x_e,p_1,p_2$, $e=\varepsilon_2+\varepsilon_3$, and the single relation $x_1\cdots x_ep_1p_2=1$ besides $x_i^{n_i}=1$ \cite[\S1.5]{Shi71}. For $N=3$ this shows that $\chi$ is trivial. For $N=5,7$ it gives $\chi(x_1)\chi(x_2)=1$, and it remains to find one elliptic element $A$ with $\chi(A)=1$; then $\chi(x_1)=\chi(x_2)=1$ because $A$ is conjugate to a power of $x_1$ or $x_2$.
+
+Take $A=\sm21{-5}{-2}$ for $N=5$ and $A=\sm31{-7}{-2}$ for $N=7$, of orders $4$ and $6$. Each fixes a positive definite rational $Y_0$, namely
+\[
+Y_0=\begin{pmatrix}1/5&-2/5\\-2/5&1\end{pmatrix}\quad(N=5),\qquad Y_0=\begin{pmatrix}1/7&-5/14\\-5/14&1\end{pmatrix}\quad(N=7),
+\]
+so every point of the curve $C=\{wY_0:w\in\mathbb H\}$ is fixed by $\Omega\mapsto A\Omega A^{\mathsf T}$. A divisor $\lambda^\perp$ with $\lambda=(a,b,T)\in L'$ has the equation $a\det\Omega-\operatorname{tr}(T\Omega)+b=0$ up to sign; on $C$ this reads $a\det(Y_0)w^2-\operatorname{tr}(TY_0)w+b=0$, which holds identically only if $a=b=0$ and $\operatorname{tr}(TY_0)=0$. The orthogonal complement of $Y_0$ is negative definite, and a finite search over it shows: for $N=7$ no $T\in K'$ with $4\det T\in\{-1,4/N-1\}$ in the classes of Lemma~\ref{lem:input} satisfies $\operatorname{tr}(TY_0)=0$; for $N=5$ exactly $\pm T_1$, $T_1=T(1,1,1)$, do, and $T_1^\perp$ is a divisor of poles of order $2$ (Lemma~\ref{lem:input}; no multiple of $T_1$ lies in a polar class). For $N=7$, pick $p\in C$ off all divisors: $\tPhi_k(p)=\tPhi_k(A\cdot p)=\chi(A)\tPhi_k(p)$ with $\tPhi_k(p)\ne0,\infty$. For $N=5$, $A^{\mathsf T}T_1A=-T_1$, so $u=\operatorname{tr}(T_1\Omega)^2\,\tPhi_k$ satisfies $u(A\Omega A^{\mathsf T})=\chi(A)u(\Omega)$; near a point of $C$ that lies on no other divisor, $u$ is holomorphic and non-zero, and the same argument applies. The search is in \texttt{fixline.py}.
+\end{proof}
+
+\begin{cor}\label{cor:dstar}
+$d_*$ is invariant under the action \eqref{eq:action} of $\Gamma_0(N)$ and under $(m,n,\ell)\mapsto(n,m,\ell)$.
+\end{cor}
+
+\begin{proof}
+The action \eqref{eq:action} is $T\mapsto A^{\mathsf T}TA$ with $A=\sm a{c/N}{Nb}d$, and $A$ runs through $\Gamma_0(N)$ as $\sm abcd$ does. The single-centred index is $(-1)^{\ell+1}$ times the coefficient of $\e(\operatorname{tr}T\Omega)$ in $1/\tPhi_k$ computed on $\operatorname{Im}\Omega=\Lambda\,T^{\mathrm{adj}}$, $\Lambda\to\infty$, over a period cell of $\operatorname{Re}\Omega$ \cite{Sen11,Sen08}. The substitution $\Omega=A^{-\mathsf T}\Omega'A^{-1}$ maps the contour for $A^{\mathsf T}TA$ to the contour for $T$, because $(A^{\mathsf T}TA)^{\mathrm{adj}}=A^{-1}T^{\mathrm{adj}}A^{-\mathsf T}$, preserves $\operatorname{tr}(T\Omega)$ and the period lattice, and leaves $1/\tPhi_k$ unchanged by Proposition~\ref{prop:gamma0}; and $\ell$ keeps its parity. The exchange is the same with $A=\sm0{1/\sqrt N}{\sqrt N}0$.
+\end{proof}
+
+We have also checked the invariance numerically: for every charge in $\cA$ with $m\le5$ and $n\le57$ whose image under a generator of $\Gamma_0(N)/\{\pm1\}\Gamma_1(N)$, reduced back by $\Gamma_1(N)$, also lies in this box, the two values of $d_*$ computed from \eqref{eq:product} agree exactly ($1120$, $9$ and $12$ pairs for $N=3,5,7$), and the same holds for the elliptic elements above ($66$ pairs for $N=5$, $38$ for $N=7$).
+
+\subsection{The cusp $0$}\label{app:cusp0}
+Put $S_\sigma(\rho,\sigma,v)=(\rho-v^2/\sigma,-1/\sigma,v/\sigma)$ and
+\[
+F_S(\Omega)=\sigma^{-k}\,\tPhi_k(S_\sigma\Omega).
+\]
+On $L\otimes\Q$, $S_\sigma$ is the isometry that exchanges $U$ and $U(N)$ (it sends the isotropic generator of $U$ to that of $U(N)$), so $F_S$ is the Borcherds product of $F$ for the lattice $L_S=S_\sigma^{-1}L=U(N)\oplus K_S$ expanded at the cusp of the summand $U(N)$, where $K_S=\{T(l,\kappa,j):l,\kappa,j\in\Z,\ 2\mid j\}\cong U\oplus A_1(-1)$ is the lattice of integral binary forms. Hence $F_S(A\Omega A^{\mathsf T})=\chi_S(A)F_S(\Omega)$ for $A\in GL_2(\Z)$, with characters $\chi_S$.
+
+\begin{lem}\label{lem:FS}
+\textup{(a)} $1/F_S=\sum_{m\ge-1}(\varphi_m|_{-k,m}S)(\sigma,v)\,\e(m\rho)$.
+\textup{(b)} Near $v=0$, $F_S=-4\pi^2N^{(k+2)/2}i^{-(k+2)}v^2g(\rho)g(\sigma)\bigl(1+O(v^2)\bigr)$.
+\textup{(c)} $F_S(A\Omega A^{\mathsf T})=F_S(\Omega)$ for all $A\in GL_2(\Z)$.
+\textup{(d)} In $\det\operatorname{Im}\Omega>N^2/4$ the only zeros and poles of $F_S$ are double zeros along $\operatorname{tr}(T\Omega)\in\Z$ for the integral binary forms $T$ of discriminant $1$, and the analogous statement holds for $\tPhi_k$ in $\det\operatorname{Im}\Omega>1/4$, with the forms $T(l,\kappa,j)$, $N\mid l$, $N\mid\kappa$, $j$ odd, $4\det T=-1$.
+\end{lem}
+
+\begin{proof}
+(a) is the substitution $\Omega\mapsto S_\sigma\Omega$ in $1/\tPhi_k=\sum\varphi_m\e(m\rho)$. (b) follows from \eqref{eq:nearv0} and $g(-1/(N\sigma))=N^{(k+2)/2}(\sigma/i)^{k+2}g(\sigma)$. (c) For $A=\sm0110$, which exchanges $\rho$ and $\sigma$, and for the reflection $A=\sm100{-1}$, compare the coefficients of $v^2$ in (b), which are invariant; so these characters are trivial. For $A=\sm1101$, i.e.\ $(\rho,\sigma,v)\mapsto(\rho+2v+\sigma,\sigma,v+\sigma)$, use (a): the elliptic law of $\varphi_m|S$ under $v\mapsto v+\sigma$ is the law of $\varphi_m$ under $v\mapsto v+1$, which holds trivially. These three matrices and $-1$ generate $GL_2(\Z)$. (d) A divisor $\lambda^\perp$ of $\Psi$ with $\lambda$ having a non-zero component $a$ along the cusp summand satisfies $q(\lambda)/a^2=q(X')-q(\operatorname{Im}\Omega)$ for some $X'\perp\operatorname{Im}\Omega$, whence $\det\operatorname{Im}\Omega\le|q(\lambda)|/a^2$; here $|q(\lambda)|\le\frac14$ and $a\in\Z$ (resp.\ $a\in\frac1N\Z$ for $L_S$). The remaining divisors are linear. For $F_S$ they come from $\lambda\in K_S'$ with $q(\lambda)\in\{-\frac14,\frac1N-\frac14\}$, and $q(K_S')\subset\frac14\Z$ excludes the second value; the forms of discriminant $1$ form one $GL_2(\Z)$-orbit, so by (b) and (c) all have double zeros. For $\tPhi_k$ the linear zeros are the forms listed, and the linear poles ($N=5,7$) are zeros of $1/\tPhi_k$.
+\end{proof}
+
+The product of $F_S$ follows from \cite[Theorem~13.3]{Bor98} at the level-$N$ cusp $z\in U(N)$: the classes $\delta\in L'/L$ above $\lambda\in K_S'$ are $(r,0,b)$, $r\in\Z/N$, with $(\delta,z')=r/N$, and $c$ equals $C_0$ for $r=0$ and $C_1$ otherwise, where $C_0=\frac4{N+1}c_{01}+\frac{2(N-1)}{N+1}h$ and $C_1=\frac2{N+1}(c_{01}-h)$ in the notation of the proof of Lemma~\ref{lem:E}. So
+\begin{equation}\label{eq:FSprod}
+F_S=c_S\,\e(\rho+\sigma+v)\prod_{\lambda\in K_S',\,(\lambda,W)>0}\bigl(1-X_\lambda\bigr)^{C_0(\Delta)-C_1(\Delta)}\bigl(1-X_\lambda^N\bigr)^{C_1(\Delta)},\qquad X_\lambda=\e(\operatorname{tr}\lambda\Omega),\ \Delta=4\det\lambda,
+\end{equation}
+with $c_S=N^{(k+2)/2}i^{-(k+2)}$ fixed by Lemma~\ref{lem:FS}(b). We use \eqref{eq:FSprod} only to compute the polar coefficients $c^S_m$ in exact arithmetic (\texttt{exactS.py}); the proofs below use Lemma~\ref{lem:FS}.
+%%==================================================================
+\section{The Wall-Crossing Formula}\label{app:walls}
+%%==================================================================
+
+This appendix proves Proposition~\ref{prop:walls}. We write $\Phi$ for $\tPhi_k$ (frame $T$) or for $F_S$ (frame $S$), and $\Gamma$ for $\Gamma_0(N)$, resp.\ $GL_2(\Z)$. For a charge matrix $T$ and $Y$ positive definite with $\det Y>N^2/4$, off the walls below, put
+\[
+c(T;Y)=\int_{\operatorname{Re}\Omega\bmod\Lambda}\frac{\e(-\operatorname{tr}T\Omega)}{\Phi(\Omega)}\,d\operatorname{Re}\Omega,\qquad\operatorname{Im}\Omega=Y,
+\]
+normalised by the volume of the period cell $\Lambda$ of $\operatorname{Re}\Omega$.
+
+\subsection{Chambers and walls}
+By Lemma~\ref{lem:FS}(d), $1/\Phi$ is holomorphic on $\{\det\operatorname{Im}\Omega>N^2/4\}$ except along the hyperplanes $\operatorname{tr}(\mu\Omega)\in\Z$ for the wall forms $\mu$ (integral of discriminant $1$ in frame $S$; $\mu=T(l,\kappa,j)$ with $N\mid l$, $N\mid\kappa$, $4\det\mu=-1$ in frame $T$). So $c(T;Y)$ is locally constant in $Y$ on the complement of the cones $\operatorname{tr}(\mu Y)=0$, by Cauchy's theorem. Both the cones and $c$ are invariant under $Y\mapsto tY$, $t>0$, so we work in the upper half-plane through
+\[
+\tau_Y=\frac{-Y_{12}+i\sqrt{\det Y}}{Y_{22}},\qquad Y=Y_{22}\begin{pmatrix}|\tau|^2&-\operatorname{Re}\tau\\-\operatorname{Re}\tau&1\end{pmatrix}.
+\]
+The wall of $\mu$ is the geodesic $\mu_{11}|\tau|^2-2\mu_{12}\operatorname{Re}\tau+\mu_{22}=0$, whose end points are the two rational roots of $\mu_{11}X^2-2\mu_{12}X+\mu_{22}$. For $G=\sm pqrs\in SL_2(\Z)$ with $r,s\ge1$ let $\mathcal C_G$ be the geodesic from $q/s$ to $p/r$; these, with the vertical lines $\operatorname{Re}\tau\in\Z$, are exactly the walls in frame $S$, and those with $N\mid rs$, with the same vertical lines, are the walls in frame $T$.\footnote{A form of discriminant $1$ factors as $(rX-p)(sX-q)$ with $ps-qr=\pm1$, and in frame $T$ the leading coefficient $rs=\mu_{11}$ is divisible by $N$.} Exactly one of $r,s$ is divisible by $N$ in frame $T$, since $\gcd(r,s)=1$.
+
+\begin{lem}\label{lem:jump0}
+Let $T$ have entries $(m',\ell'/2,n'/N)$ in frame $T$ $($resp.\ $(m',\ell'/2,n')$ in frame $S)$. Across the basic wall $\operatorname{Re}\tau=0$, i.e.\ $\operatorname{Im}v=0$,
+\[
+c(T;\operatorname{Re}\tau<0)-c(T;\operatorname{Re}\tau>0)=\ell'\,d(m')\,d(n').
+\]
+\end{lem}
+
+\begin{proof}
+Frame $T$: by \eqref{eq:nearv0}, $1/\Phi=-(4\pi^2v^2)^{-1}H(\rho,\sigma)+O(1)$ near $v=0$ with $H=1/(g(\rho)g(\sigma/N))$, with no $1/v$ term because $\Phi$ is even in $v$. The Fourier coefficient of $y^{\ell'}$ on $\operatorname{Im}v=c$ is $a(c)=\int_0^1f(v+ic)\e(-\ell'(v+ic))dv$; the integrals over the two vertical sides of a period rectangle cancel, so $a(0^+)-a(0^-)=-2\pi i\operatorname{Res}_{v=0}\bigl(-\tfrac{H}{4\pi^2v^2}\e(-\ell'v)\bigr)=\ell'H$. Its coefficient at $\e(m'\rho+n'\sigma/N)$ is $\ell'd(m')d(n')$. Since $Y_{12}=\operatorname{Im}v$, $\operatorname{Im}v>0$ means $\operatorname{Re}\tau<0$. Frame $S$ is the same with Lemma~\ref{lem:FS}(b); the factor $N^{-(k+2)/2}i^{k+2}$ is absorbed in the normalisation of $c^S$.
+\end{proof}
+
+\begin{lem}\label{lem:jumpG}
+Let $G=\sm pqrs$ be as above, $T$ a charge matrix, and put $u=(p,-r)$, $u'=(q,-s)$, $a=T[u]$, $b=T[u']$, $\ell_G=-2\,u^{\mathsf T}Tu'$, where $T[u]=u^{\mathsf T}Tu$. Then, writing ``out'' and ``in'' for the two sides of $\mathcal C_G$ $($the side containing $i\infty$ and the other$)$,
+\[
+c(T;\mathrm{out})-c(T;\mathrm{in})=\begin{cases}\ell_G\,d(a)\,d(b)&\text{frame }S,\\ \ell_G\bigl([N\mid r]\,d(a)\,d(Nb)+[N\mid s]\,d(Na)\,d(b)\bigr)&\text{frame }T.\end{cases}
+\]
+For $T=\sm m{\tilde\ell/2}{\tilde\ell/2}{\nu}$ these are the numbers $a_G,b_G,\ell_G$ of \eqref{eq:mG}.
+\end{lem}
+
+\begin{proof}
+Let $P=(u\;u')=\sm pq{-r}{-s}$, of determinant $-1$, and $\tilde P=(u'\;u)$, of determinant $+1$. The substitution $\Omega=P\Omega'P^{\mathsf T}$ gives $c(T;Y)=c(P^{\mathsf T}TP;P^{-1}YP^{-\mathsf T})$ whenever $\Omega\mapsto P^{-1}\Omega P^{-\mathsf T}$ is a symmetry of $\Phi$, and likewise for $\tilde P$. In frame $S$ every $P\in GL_2(\Z)$ qualifies (Lemma~\ref{lem:FS}(c)). In frame $T$, $P^{-1}=\sm sq{-r}{-p}$ is the reflection times an element of $\Gamma_0(N)$ if $N\mid r$, and $\tilde P^{-1}=\sm{-r}{-p}sq\in\Gamma_0(N)$ if $N\mid s$ (Proposition~\ref{prop:gamma0}). The transformed charge is $P^{\mathsf T}TP=\sm a{-\ell_G/2}{-\ell_G/2}b$, resp.\ $\tilde P^{\mathsf T}T\tilde P=\sm b{-\ell_G/2}{-\ell_G/2}a$, and in frame $T$ its entries are $(m',n'/N)=(a,b)$, resp.\ $(b,a)$. For $Y'=P^{-1}YP^{-\mathsf T}$ (and the same for $\tilde P$) one computes
+\[
+Y'_{12}=-\bigl(rsY_{11}+(ps+qr)Y_{12}+pqY_{22}\bigr)=-Y_{22}\bigl(rs|\tau_Y|^2-(ps+qr)\operatorname{Re}\tau_Y+pq\bigr),
+\]
+which is positive exactly inside $\mathcal C_G$. So the side $\operatorname{Re}\tau'<0$ of the basic wall corresponds to ``in'', and Lemma~\ref{lem:jump0} with $\ell'=-\ell_G$ gives the claim.
+\end{proof}
+
+\subsection{Proof of Proposition~\ref{prop:walls}}
+Fix $m\ge1$ and a polar index $(\nu,\tilde\ell)$ with $0\le\tilde\ell<2m$, and let $T=\sm m{\tilde\ell/2}{\tilde\ell/2}\nu$, $\tilde D=4m\nu-\tilde\ell^2<0$, $w_0=\tilde\ell/(2m)$.
+
+\emph{Step 1: the top.} For $Y_{11}$ large and $Y_{12}/Y_{22}=-w_0$, the expansion $1/\Phi=\sum_{m'}\psi_{m'}\e(m'\rho)$ shows that $c(T;Y)$ is the coefficient of $p^{\nu}y^{\tilde\ell}$ of $\psi_m$ on the line $\operatorname{Im}v=-w_0\operatorname{Im}\sigma$. The polar part $\mathcal D(\sigma)\cA_m(\sigma,v)$, with $\cA_m=\sum_sp^{ms^2+s}y^{2ms+1}(1-p^sy)^{-2}$, has no term $y^{\tilde\ell}$ on this line when $|\tilde\ell|\le m$: on it $|p^sy|=|p|^{s-w_0}$, so the term $s\ge1$ expands in powers $y^{2ms+r}$, $r\ge1$, the term $s\le-1$ in powers $y^{2ms-r}$, and the term $s=0$ in $y^{\pm r}$ with the sign opposite to that of $\tilde\ell$; none equals $y^{\tilde\ell}$. Hence $c(T;\text{top})$ is the finite-part coefficient, $c^F_m$ or $c^S_m$. (If $\tilde\ell=0$ the line lies on the basic wall, across which the jump is $0$ by Lemma~\ref{lem:jump0}.)
+
+\emph{Step 2: down the vertical line.} Move $\tau$ from $i\infty$ to $w_0$ along $\operatorname{Re}\tau=w_0$. The walls crossed are the $\mathcal C_G$ with $q/s<w_0<p/r$; there are finitely many, because if $w_0=a/b$ in lowest terms then $b\ge r+s$ for such $G$. A wall with an end point at $w_0$ is not crossed: the vertical line through an end point stays outside the semicircle. By Lemma~\ref{lem:jumpG}, $c(T;\text{top})=c(T;w_0^+)+\sum_{q/s<w_0<p/r}J_G$, where $J_G$ is the jump of Lemma~\ref{lem:jumpG} and $w_0^+$ denotes the chamber just above $w_0$.
+
+\emph{Step 3: at the cusp $w_0$.} Write $w_0=a/b$ and $u_0=(a,-b)$. Choose $\gamma\in\Gamma$ moving $w_0$ to $i\infty$ (frame $S$, or frame $T$ when $N\mid b$), or to $0$ followed by the exchange (frame $T$ when $N\nmid b$; Proposition~\ref{prop:gamma0}). In the new coordinates the chamber $w_0^+$ contains points with $Y'_{11}\to\infty$, and the transformed charge has first entry $m'=T[u_0]$, resp.\ second entry $n'=N\,T[u_0]$, where
+\[
+T[u_0]=\frac{m\tilde D}{\gcd(\tilde\ell,2m)^2}<0 .
+\]
+If this entry is $\le-2$, the Fourier--Jacobi expansion (which starts at index $-1$) gives $c(T;w_0^+)=0$. If it is $-1$, the coefficient is that of the index $-1$ form $\psi_{-1}=1/(\pmi(\sigma,v)g(\sigma/N))$ (or $1/(\pmi g)$ at the cusp $0$), in the strip of the new picture that contains our chamber. This form obeys the elliptic law of index $-1$ under $v\mapsto v+\sigma$, which preserves $4m'n'-\ell'^2$ and sends $|\ell'|\to\infty$, hence $n'\to-\infty$; in the strip $0<-\operatorname{Im}v<\operatorname{Im}\sigma$ its expansion has only exponents $n'\ge-1$. So the coefficient vanishes in strips far to the right. Moving there crosses the vertical walls of the new picture, which are the walls $\mathcal C_G$ with $q/s=w_0$, from outside to inside, and only finitely many of them have $d(b_G)\ne0$ because $b_G\to-\infty$ along the fan. Hence $c(T;w_0^+)=\sum_{q/s=w_0}J_G$, and in this sum one of the two arguments of $d$ is $T[u_0]$ (or $N\,T[u_0]$), equal to $-1$; when $T[u_0]\le-2$ these terms are $0$ anyway.
+
+Adding Steps 1--3 gives $c=\sum_{G\in\mathcal W(w_0)}J_G$, which is Proposition~\ref{prop:walls}. \qed
+
+\medskip
+As an independent check, both identities agree exactly with the coefficients computed from \eqref{eq:product} and \eqref{eq:FSprod} for every polar index with $m\le6$ (\texttt{walls.py}, \texttt{wallsI.py}).
+%%==================================================================
+\section{The Circle Method}\label{app:circle}
+%%==================================================================
+
+This appendix proves Theorem~\ref{thm:exp}. We work directly with the meromorphic form $\varphi_m$, which transforms exactly, and handle the polar part by an explicit computation; no completion is needed.
+
+\subsection{Transformation at a cusp}
+By Lemma~\ref{lem:weyl} and Proposition~\ref{prop:gamma0}, $\varphi_m$ is invariant under $v\mapsto v+\lambda\sigma+\mu$ ($\lambda,\mu\in\Z$) up to the factor $\e(-m(\lambda^2\sigma+2\lambda v))$, and under $\sigma\mapsto\sigma+N$; by \cite[Theorem~5.2]{BSS25} it transforms with weight $-k$ and index $m$ under $\Gamma^0(N)=\{\sm abcd:N\mid b\}$, with the character $\chi_N(d)$ of $1/g(\sigma/N)$, which is trivial for $N=3,5$ and equals $\bigl(\frac d7\bigr)$ for $N=7$. Write $\varphi^F_m=\sum_{\ell\bmod2m}h_\ell(\sigma)\vartheta_{m,\ell}(\sigma,v)$, $\vartheta_{m,\ell}=\sum_{r\equiv\ell\,(2m)}p^{r^2/4m}y^r$, so that $h_\ell=\sum_nc^F_m(n,\ell)\e(D\sigma/4m)$.
+
+Let $(\gamma,\delta)$ be a pair as in Section~\ref{sec:exp} and $M=\sm\alpha\beta\gamma\delta\in SL_2(\Z)$, and put $\sigma=(-\delta+iz)/\gamma$, so that $\gamma\sigma+\delta=iz$ and $\sigma'=M\sigma=\alpha/\gamma+i/(\gamma z)$. Let $\Phi_M=\varphi_m|_{-k,m}M^{-1}$ be the expansion of $\varphi_m$ at the cusp $-\delta/\gamma$.
+\begin{itemize}
+\item Type $T$ ($N\nmid\delta$): with $j'\equiv\beta\delta^{-1}\pmod N$, $M'=\sm1{-j'}01M\in\Gamma^0(N)$, so $\Phi_M(\sigma',v')=\chi_N(\delta)\varphi_m(\sigma'-j',v')$.
+\item Type $S$ ($N\mid\delta$): $A=S^{-1}M^{-1}=\sm{-\gamma}\alpha{-\delta}\beta\in\Gamma_0(N)$, and $\psi_m=\varphi_m|S$ is invariant under $\Gamma_0(N)$ with the character $\sm abcd\mapsto\chi_N(d)$, $\psi_m|(-1)=(-1)^k\psi_m$ (evenness in $v$), so $\Phi_M=\psi_m|A=(-1)^k\chi_N(-\beta)\psi_m$.
+\end{itemize}
+In both cases $\Phi_M=\mathcal D_M(\sigma')\cA_m(\sigma',v')+\Phi_M^F$, where $\mathcal D_M$ is read off from \eqref{eq:polar} and Lemma~\ref{lem:FS}(b), and $\Phi^F_M=\sum h^M_{\tilde\ell}\vartheta_{m,\tilde\ell}$ has the polar coefficients $c(\nu,\tilde\ell)$ of Theorem~\ref{thm:exp}; the leading term of $\mathcal D_M$ is $c_*\e(-\mu\sigma')$.
+
+\begin{lem}\label{lem:transf}
+On the arc,
+\[
+h_\ell(\sigma)=(iz)^{k+\frac12}\sum_{\tilde\ell\bmod2m}W_\gamma(\alpha,\delta;\tilde\ell,\ell)\,h^M_{\tilde\ell}(\sigma')+(iz)^{k+2}\mathcal D_M(\sigma')\Delta_\ell(\sigma),
+\]
+where
+\begin{equation}\label{eq:Deltal}
+\Delta_\ell(\sigma)=-\frac{1}{4\pi^2z}\sum_{\substack{h\bmod2m\gamma\\ h\equiv\ell\,(2m)}}\e\Bigl(\frac{\delta h^2}{4m\gamma}\Bigr)\int_{\R}e^{-2\pi m\gamma zx^2}\,\frac{\pi^2}{\sinh^2\bigl(\pi(x+ih/2m\gamma)\bigr)}\,dx,
+\end{equation}
+with the term $h\equiv0\pmod{2m\gamma}$ read as a finite part at $x=0$.
+\end{lem}
+
+\begin{proof}
+Since $\varphi_m=\Phi_M|M$, we have $\varphi^F_m=\Phi^F_M|M+\mathcal D\cdot(\cA_m|_{2,m}M-\cA_m)$, where $\mathcal D(\sigma)=(iz)^{k+2}\mathcal D_M(\sigma')$ is the polar coefficient of $\varphi_m$; the two polar coefficients are related in this way because both forms have the same double pole $-\mathcal D/(4\pi^2v^2)$ at $v=0$. For the first term, write $\vartheta_{m,\tilde\ell}(\sigma',v')$ with $r=\tilde\ell+2m(\gamma t+T)$, $T\bmod\gamma$, and apply Poisson summation to the sum over $t$. This expresses $\vartheta_{m,\tilde\ell}(\sigma',v')$ as $(iz)^{1/2}\e(m\gamma v^2/(iz))$ times a combination of the $\vartheta_{m,\ell}(\sigma,v)$ whose coefficients are the Gauss sums over $T$; comparing theta coefficients in $\Phi^F_M|M$ gives the first term of the lemma, with $W_\gamma$ as in Section~\ref{sec:exp} \cite[\S5]{EZ85}. For the second term, $\cA_m=\sum_sp^{ms^2}y^{2ms}F_0(v+s\sigma)$ with $F_0(u)=\frac{\e(u)}{(1-\e(u))^2}=(2\pi i)^{-2}\sum_n(u-n)^{-2}$. Substituting $\sigma'=M\sigma$, $v'=v/(iz)$ and $(\lambda,\mu)=(s\alpha-n\gamma,s\beta-n\delta)$, which runs over $\Z^2$, one finds with $u=v+\lambda\sigma+\mu$
+\[
+\cA_m|_{2,m}M-\cA_m=\frac{1}{(2\pi i)^2}\sum_{\lambda,\mu}\e\bigl(m(\lambda^2\sigma+2\lambda v)\bigr)\,\frac{e^{-2\pi m\gamma u^2/z}-1}{u^2},
+\]
+which is holomorphic and has index $m$. Its theta coefficient is $\Delta_\ell(\sigma)=\sum_{r\equiv\ell\,(2m)}\hat g(r)\e(-r^2\sigma/4m)$ with $\hat g(r)=(2\pi i)^{-2}\int_\R(e^{-au^2}-1)u^{-2}\e(-ru)\,du$, $a=2\pi m\gamma/z$. For $r>0$, shifting the contour to $\operatorname{Im}u=-\pi r/a$ and substituting $u=(b/\pi)(y-ir)$, $b=\pi z/(2m\gamma)$ (so $ab=\pi^2$), gives
+\[
+\hat g(r)\,e^{br^2}=-\frac{1}{4\pi b}\int_\R\frac{e^{-by^2}}{(y+ir)^2}\,dy,
+\]
+where the term $-1$ contributes nothing, since $\e(-ru)u^{-2}$ is integrated over a line below its pole and decays in the lower half-plane; $r<0$ is symmetric, and for $r=0$ the same holds with the finite part. Now $\e(-r^2\sigma/4m)=\e(\delta r^2/4m\gamma)e^{br^2}$, the phase depends on $r\bmod2m\gamma$ only, and $\sum_{r\equiv h\,(2m\gamma)}(y+ir)^{-2}=(2m\gamma)^{-2}\pi^2\sinh^{-2}\bigl(\pi(y+ih)/2m\gamma\bigr)$. With $y=2m\gamma x$ this is \eqref{eq:Deltal}.
+\end{proof}
+
+\subsection{The integrals}
+\begin{lem}\label{lem:besselint}
+For $A>0$, $B\in\R$ and $\rho>-1$, on a vertical line $\operatorname{Re}w=c>0$,
+\[
+\frac{1}{2\pi i}\int_{c-i\infty}^{c+i\infty}w^{-\rho-1}e^{Aw+B/w}\,dw=\Bigl(\frac AB\Bigr)^{\rho/2}I_\rho\bigl(2\sqrt{AB}\bigr)=\sum_{j\ge0}\frac{A^{\rho+j}B^j}{j!\,\Gamma(\rho+j+1)} .
+\]
+\end{lem}
+
+\begin{proof}
+Expand $e^{B/w}$ and use Hankel's formula $\frac1{2\pi i}\int w^{-s}e^{Aw}dw=A^{s-1}/\Gamma(s)$, valid termwise for $\rho>-1$ after deforming to a Hankel contour; the series converges absolutely and uniformly.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:exp}}
+For $K\ge1$ dissect the segment $[i/K^2,i/K^2+N]$ along the Ford circles of the fractions $-\delta/\gamma\in[0,N)$ with $\gamma\le K$ (Rademacher's path), so that
+\[
+c^F_m(n,\ell)=\frac1N\sum_{\gamma\le K}\sum_\delta\int_{\text{arc}}h_\ell(\sigma)\e(-D\sigma/4m)\,d\sigma .
+\]
+On the arc of $-\delta/\gamma$, $d\sigma=\frac i\gamma dz$, $z$ runs over part of the circle $|z-\frac1{2\gamma}|=\frac1{2\gamma}$, and $w=1/z$ over part of the line $\operatorname{Re}w=\gamma$. Insert Lemma~\ref{lem:transf}. In the first term, a polar coefficient of $h^M_{\tilde\ell}$ contributes
+\[
+\frac{i}{N\gamma}\,i^{k+\frac12}\,c(\nu,\tilde\ell)\,W_\gamma\,\e\Bigl(\frac{\alpha\tilde D+\delta D}{4m\gamma}\Bigr)\int z^{k+\frac12}\exp\Bigl(\frac{\pi|\tilde D|}{2m\gamma z}+\frac{\pi Dz}{2m\gamma}\Bigr)dz,
+\]
+and in the second term the leading coefficient $c_*\e(-\mu\sigma')$ of $\mathcal D_M$ contributes, by \eqref{eq:Deltal},
+\[
+-\frac{i\,i^{k+2}c_*}{4\pi^2N\gamma}\,\e\Bigl(\frac{\delta D}{4m\gamma}-\frac{\mu\alpha}{\gamma}\Bigr)\sum_h\e\Bigl(\frac{\delta h^2}{4m\gamma}\Bigr)\int_\R\frac{\pi^2\,dx}{\sinh^2(\pi(x+ih/2m\gamma))}\int z^{k+1}\exp\Bigl(\frac{2\pi\mu}{\gamma z}+\pi z\Bigl(\frac{D}{2m\gamma}-2m\gamma x^2\Bigr)\Bigr)dz .
+\]
+Completing each arc to the full circle and applying Lemma~\ref{lem:besselint} with $w=1/z$ turns the $z$-integrals into $-2\pi i\,(A/B)^{\rho/2}I_\rho(2\sqrt{AB})$, with $\rho=k+\frac32$, $(A,B)=(\pi|\tilde D|/2m\gamma,\pi D/2m\gamma)$ for the first, and $\rho=k+2$, $(A,B)=(2\pi\mu/\gamma,\pi(D/2m\gamma-2m\gamma x^2))$ for the second. The prefactors become $\frac{2\pi}{N\gamma}i^{k+\frac12}$ and $\frac{i^k}{2\pi N\gamma}$. For the class $h\equiv0$ the finite part is evaluated by parts, using $\frac{d}{dB}\mathfrak B_\nu=\mathfrak B_{\nu+1}$ and $\frac{dB}{dx}=-4\pi m\gamma x$:
+\[
+\mathrm{f.p.}\!\int_\R\frac{\mathfrak B(x)}{x^2}dx=-8\pi m\gamma\int_0^\infty\mathfrak B_{k+3}(x)\,dx .
+\]
+Finally $d_*=(-1)^{\ell+1}c^F_m$ by \eqref{eq:dstar}.
+
+It remains to see that, as $K\to\infty$, the non-polar coefficients of $h^M$, the non-leading coefficients of $\mathcal D_M$ and the completions of the arcs contribute nothing. These are the estimates of Rademacher's method for forms of negative weight \cite{Rad43}, \cite[Ch.~5]{Apo90}: on the arcs $\operatorname{Im}\sigma'\ge\frac12$, so the non-polar parts are bounded, and the weight factors $(iz)^{k+\frac12}$ and $(iz)^{k+2}$, $k\ge1$, together with the arc lengths, make their total $o(1)$; the same bounds apply to the extra arcs. The integral over $x$ converges absolutely: $|\mathfrak B(x)|\le\mathfrak B(0)$ for $|x|$ large, where $B<0$ and $|J_\nu(y)|\le(y/2)^\nu/\Gamma(\nu+1)$, and the kernel is integrable. Absolute convergence of the sums over $(\gamma,\delta)$ follows from $\nu_k>\frac32$ and $k+2\ge3$ together with Lemma~\ref{lem:bessel}(c). \qed
 
 \begin{thebibliography}{99}
 \bibitem{Sen11} A. Sen, \emph{How do black holes predict the sign of the Fourier coefficients of Siegel modular forms?}, Gen. Relativ. Gravit. \textbf{43} (2011), 2171--2183. \href{https://doi.org/10.1007/s10714-011-1175-9}{doi:10.1007/s10714-011-1175-9}
@@ -590,5 +861,9 @@ The author declares no conflicts of interest.
 \bibitem{Son65} R. P. Soni, \emph{On an inequality for modified Bessel functions}, J. Math. Phys. \textbf{44} (1965), 406--407. \href{https://doi.org/10.1002/sapm1965441406}{doi:10.1002/sapm1965441406}
 \bibitem{Joh17} F. Johansson, \emph{Arb: efficient arbitrary-precision midpoint-radius interval arithmetic}, IEEE Trans. Comput. \textbf{66} (2017), 1281--1292. \href{https://doi.org/10.1109/TC.2017.2690633}{doi:10.1109/TC.2017.2690633}
 \bibitem{DLMF} F. W. J. Olver, A. B. Olde Daalhuis, D. W. Lozier, B. I. Schneider, R. F. Boisvert, C. W. Clark, B. R. Miller, B. V. Saunders, H. S. Cohl, M. A. McClain (eds.), \emph{NIST Digital Library of Mathematical Functions}, Chapter~10. \url{https://dlmf.nist.gov/10}
+\bibitem{Shi71} G. Shimura, \emph{Introduction to the Arithmetic Theory of Automorphic Functions}, Publications of the Mathematical Society of Japan 11, Princeton University Press, Princeton, 1971.
+\bibitem{Rad43} H. Rademacher, \emph{On the expansion of the partition function in a series}, Ann. of Math. (2) \textbf{44} (1943), 416--422. \href{https://doi.org/10.2307/1968973}{doi:10.2307/1968973}
+\bibitem{Apo90} T. M. Apostol, \emph{Modular Functions and Dirichlet Series in Number Theory}, 2nd ed., Graduate Texts in Mathematics 41, Springer, New York, 1990. \href{https://doi.org/10.1007/978-1-4612-0999-7}{doi:10.1007/978-1-4612-0999-7}
+\bibitem{Lan00} L. J. Landau, \emph{Bessel functions: monotonicity and bounds}, J. London Math. Soc. (2) \textbf{61} (2000), 197--215. \href{https://doi.org/10.1112/S0024610799008352}{doi:10.1112/S0024610799008352}
 \end{thebibliography}
 \end{document}
