@@ -1,0 +1,10 @@
+reps 24038 enum time 0.04935932159423828
+block m in (0,1] X=702 charges=1400 time=4.8s bad so far=0
+block m in (1,2] X=354 charges=1048 time=1.2s bad so far=0
+block m in (2,4] X=239 charges=1794 time=1.1s bad so far=0
+block m in (4,8] X=149 charges=3151 time=1.5s bad so far=0
+block m in (8,16] X=94 charges=5356 time=2.6s bad so far=0
+block m in (16,32] X=78 charges=6498 time=11.1s bad so far=0
+block m in (32,64] X=123 charges=4520 time=199.9s bad so far=0
+block m in (64,79] X=148 charges=271 time=611.0s bad so far=0
+N 7 D0 400 charges 24038 nonpositive 0 [] total 833.1828820705414

@@ -1,0 +1,9 @@
+reps 12695 enum time 0.21797990798950195
+block m in (0,1] X=502 charges=1000 time=3.2s bad so far=0
+block m in (1,2] X=253 charges=748 time=0.7s bad so far=0
+block m in (2,4] X=171 charges=1277 time=0.8s bad so far=0
+block m in (4,8] X=107 charges=2210 time=1.0s bad so far=0
+block m in (8,16] X=67 charges=3521 time=1.6s bad so far=0
+block m in (16,32] X=56 charges=3068 time=6.9s bad so far=0
+block m in (32,57] X=81 charges=871 time=67.8s bad so far=0
+N 5 D0 400 charges 12695 nonpositive 0 [] total 82.26322317123413

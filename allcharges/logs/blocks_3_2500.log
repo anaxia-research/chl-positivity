@@ -1,0 +1,8 @@
+reps 73147 enum time 0.9669361114501953
+block m in (0,1] X=1876 charges=3750 time=1110.4s bad so far=0
+block m in (1,2] X=940 charges=2810 time=122.3s bad so far=0
+block m in (2,4] X=628 charges=4826 time=50.5s bad so far=0
+block m in (4,8] X=379 charges=8558 time=39.4s bad so far=0
+block m in (8,16] X=216 charges=15270 time=45.2s bad so far=0
+block m in (16,32] X=124 charges=23777 time=72.5s bad so far=0
+block m in (32,64] X=82 charges=13642 time=186.0s bad so far=0
