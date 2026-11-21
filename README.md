@@ -6,7 +6,7 @@ The paper proves Sen's positivity conjecture for every single-centred black hole
 
 ## Layout
 
-- `paper/`: the LaTeX source (MDPI template), the figures and the compiled PDF.
+- `paper/`: the LaTeX source (amsart), the figures and the compiled PDF.
 - `code/`: the programs behind every computation in the paper.
 
 ## Running the checks

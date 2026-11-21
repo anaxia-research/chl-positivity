@@ -1,24 +1,13 @@
-\documentclass[mathematics,article,submit,pdftex,oneauthor]{Definitions/mdpi}
-\usepackage{mathtools}
-\usepackage{placeins}
-\usepackage{xurl}
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amssymb,mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning}
+\usepackage{xurl}
+\usepackage[colorlinks=false,hidelinks]{hyperref}
 \graphicspath{{./}{figures/}}
-\firstpage{1}
-\makeatletter
-\setcounter{page}{\@firstpage}
-\makeatother
-\pubvolume{1}
-\issuenum{1}
-\articlenumber{0}
-\pubyear{2026}
-\copyrightyear{2026}
-\datereceived{ }
-\daterevised{ }
-\dateaccepted{ }
-\datepublished{ }
-\hreflink{https://doi.org/}
 \numberwithin{equation}{section}
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}[section]
@@ -38,19 +27,20 @@
 \newcommand{\pz}{\phi_{0,1}}
 \newcommand{\tPhi}{\widetilde{\Phi}}
 
-\Title{Positive First-Row Black Hole Indices in CHL Models}
-\TitleCitation{Positive First-Row Black Hole Indices in CHL Models}
-\newcommand{\orcidauthorA}{0000-0003-0466-750X}
-\Author{Deep Bhattacharjee \orcidA{}}
-\AuthorNames{Deep Bhattacharjee}
-\AuthorCitation{Bhattacharjee, D.}
-\address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India;
-formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India;
-itsdeep@live.com; egspl@proton.me}
-\corres{Correspondence: d.bhattacharjee@erl-forschung.de}
-\abstract{In the $\Z_3$, $\Z_5$ and $\Z_7$ CHL models, every single-centred black hole with electric charge $Q^2=2/N$ has a positive index, as Sen predicted. The proof writes the relevant mock Jacobi form in closed form through an eta quotient, the theta series of a maximal quaternion order and Hurwitz class numbers.}
-\keyword{CHL models; single-centred black holes; quaternion orders}
+
+\title{Positive First-Row Black Hole Indices in CHL Models}
+\author{Deep Bhattacharjee}
+\address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India; formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India}
+\email{d.bhattacharjee@erl-forschung.de}
+\subjclass[2020]{11F50 (primary); 11F37, 11F27, 81T30, 83E30}
+\keywords{CHL models, single-centred black holes, quaternion orders}
+
 \begin{document}
+\begin{abstract}
+In the $\Z_3$, $\Z_5$ and $\Z_7$ CHL models, every single-centred black hole with electric charge $Q^2=2/N$ has a positive index, as Sen predicted. The proof writes the relevant mock Jacobi form in closed form through an eta quotient, the theta series of a maximal quaternion order and Hurwitz class numbers.
+\end{abstract}
+\maketitle
+
 
 %%==================================================================
 \section{Introduction}
@@ -116,7 +106,7 @@ Section~\ref{sec:pf} recalls the partition function, the decomposition of Bhand,
 %%==================================================================
 
 \subsection{Twisted elliptic genera}
-Let $\phi_{-2,1}(\tau,z)=-\theta_1(\tau,z)^2/\eta(\tau)^6$ and $\pz(\tau,z)=4\sum_{j=2}^4\theta_j(\tau,z)^2/\theta_j(\tau)^2$, so that $\pmi=\zeta-2+\zeta^{-1}+O(q)$ and $\pz=\zeta+10+\zeta^{-1}+O(q)$ with $\zeta=\e(z)$. We write $\alpha(4a-r^2)$ for the coefficient of $q^a\zeta^r$ in $\pmi$. Let
+Let\[\pmi(\tau,z)=-\frac{\theta_1(\tau,z)^2}{\eta(\tau)^6},\qquad \pz(\tau,z)=4\sum_{j=2}^4\frac{\theta_j(\tau,z)^2}{\theta_j(\tau)^2},\]so that $\pmi=\zeta-2+\zeta^{-1}+O(q)$ and $\pz=\zeta+10+\zeta^{-1}+O(q)$ with $\zeta=\e(z)$. We write $\alpha(4a-r^2)$ for the coefficient of $q^a\zeta^r$ in $\pmi$. Let
 \begin{equation}\label{eq:EN}
 E_N(\tau)=\frac{NE_2(N\tau)-E_2(\tau)}{N-1}=1+\frac{24}{N-1}\sum_{n\ge1}\sigma^{(N)}(n)q^n,\qquad \sigma^{(N)}(n)=\sum_{d\mid n,\ N\nmid d}d,
 \end{equation}
@@ -304,7 +294,7 @@ w_5(t)\ge\tfrac{15}{13}\bigl(1-5^{-3}\bigr)t^3-\tfrac{30}{13}t^2>0,\]\[ w_7(t)\g
 \end{lem}
 
 \begin{proof}
-(i) is \cite[Lemma~4(i)]{Bha26a}, proved there from the theta decomposition $\pmi=\bigl[\vartheta_{1,0}(\tau,0)\vartheta_{1,1}(\tau,z)-\vartheta_{1,1}(\tau,0)\vartheta_{1,0}(\tau,z)\bigr]/\eta^6$ \cite{BM13}. (ii) For $N=3$, $w_3(t)=9\sum_{d\mid t,\ 3\nmid t/d}d^3\ge9t^3$. For $N=5,7$ use \eqref{eq:decomp}: the Eisenstein part is $240x_N(\sigma_3(t)-\sigma_3(t/N))\ge240x_N(1-N^{-3})t^3$, and Deligne's bound \cite{Del74} for the newform gives $|g_N(t)|\le d(t)t^{3/2}\le2t^2$. The right sides are positive for $t\ge3$ because $t>2|y_N|/(240x_N(1-N^{-3}))$, which is $2.02$ and $2.01$. The values at $t\le2$ are read off from \eqref{eq:WN}. (iii) A reduced form $(a,b,c)$ of discriminant $-D$ has $|b|\le a\le\sqrt{D/3}$ and is determined by $(a,b)$, so $H(D)\le\sqrt{D/3}\,(2\sqrt{D/3}+1)\le D$ for $D\ge3$; and $H(1)=H(2)=0$.
+(i) is \cite[Lemma~4(i)]{Bha26a}, proved there from the theta decomposition \cite{BM13}\[\pmi=\frac{\vartheta_{1,0}(\tau,0)\vartheta_{1,1}(\tau,z)-\vartheta_{1,1}(\tau,0)\vartheta_{1,0}(\tau,z)}{\eta(\tau)^6}.\] (ii) For $N=3$, $w_3(t)=9\sum_{d\mid t,\ 3\nmid t/d}d^3\ge9t^3$. For $N=5,7$ write \eqref{eq:decomp} as $W_N=x_N\bigl(E_4(\tau)-E_4(N\tau)\bigr)+y_Ng_N$, so $(x_5,y_5)=(\tfrac1{208},-\tfrac{15}{13})$ and $(x_7,y_7)=(\tfrac1{800},-\tfrac3{10})$. The Eisenstein part is $240x_N(\sigma_3(t)-\sigma_3(t/N))\ge240x_N(1-N^{-3})t^3$, and Deligne's bound \cite{Del74} for the newform gives $|g_N(t)|\le d(t)t^{3/2}\le2t^2$. The right sides are positive for $t\ge3$ because $t>2|y_N|/(240x_N(1-N^{-3}))$, which is $2.02$ and $2.01$. The values at $t\le2$ are read off from \eqref{eq:WN}. (iii) A reduced form $(a,b,c)$ of discriminant $-D$ has $|b|\le a\le\sqrt{D/3}$ and is determined by $(a,b)$, so $H(D)\le\sqrt{D/3}\,(2\sqrt{D/3}+1)\le D$ for $D\ge3$; and $H(1)=H(2)=0$.
 \end{proof}
 
 \begin{prop}\label{prop:sign}
@@ -390,15 +380,15 @@ Figure~\ref{fig:row1} shows $\log_{10}d_*$ on the first rows, and Figure~\ref{fi
 
 For $N=2$ the proof of \cite{Bha26a} reduces every charge, by duality and the Fricke exchange, to one with $m\le n$ and $0\le\ell\le m$, writes $d_*$ as a Rademacher series over the cosets of $\Gamma_0(2)$, and shows that the terms attached to the leading family of walls resum to $|P(z)|^2$ with $P(z)=\prod_n(1-z^n)^{-8}(1-z^{2n})^{-8}$ on $|z|\le e^{-\pi}$, where $|P|^2\ge0.5389$. The same family for prime $N$ resums to $\prod_n|1-z^n|^{-2(k+2)}|1-z^{Nn}|^{-2(k+2)}$ on $|z|\le e^{-2\pi/N}$ \cite[Section~16]{Bha26a}. A grid evaluation on the boundary circle, where the minimum of the modulus is attained, gives the minima $0.2858$, $0.2202$ and $0.2024$ for $N=3,5,7$. These numbers are positive, so the method can work, but the error terms must be bounded below them rather than below $0.53$, and the Rademacher expansion for $\Gamma_0(N)$ requires the polar data of the finite parts at the cusp $0$ as well as at $\infty$. The first-row formula \eqref{eq:closed} gives these data exactly for $m=1$ and fixes the normalisation of the shadow, which is the natural starting point for that extension.
 
-\vspace{6pt}
-\funding{This research received no external funding.}
-\institutionalreview{Not applicable.}
-\informedconsent{Not applicable.}
-\dataavailability{The Python programs that expand the product formula, compute the finite parts, verify Propositions~\ref{prop:num} and \ref{prop:theta} and the decompositions \eqref{eq:decomp}, check the small cases and the box of Section~\ref{sec:checks}, and draw the figures are available in the GitHub repository \url{https://github.com/anaxia-research/chl-positivity} (folder \texttt{code}), together with the source of this article.}
-\conflictsofinterest{The author declares no conflicts of interest.}
+\subsection*{Data availability}
+The Python programs that expand the product formula, compute the finite parts, verify Propositions~\ref{prop:num} and \ref{prop:theta} and the decompositions \eqref{eq:decomp}, check the small cases and the box of Section~\ref{sec:checks}, and draw the figures are available in the GitHub repository \url{https://github.com/anaxia-research/chl-positivity} (folder \texttt{code}), together with the source of this article.
 
-\begin{adjustwidth}{-\extralength}{0cm}
-\reftitle{References}
+\subsection*{Funding}
+This research received no external funding.
+
+\subsection*{Conflicts of interest}
+The author declares no conflicts of interest.
+
 \begin{thebibliography}{999}
 \bibitem{Sen11} A. Sen, \emph{How do black holes predict the sign of the Fourier coefficients of Siegel modular forms?}, Gen. Relativ. Gravit. \textbf{43} (2011), 2171--2183. \href{https://doi.org/10.1007/s10714-011-1175-9}{doi:10.1007/s10714-011-1175-9}
 \bibitem{Sen08} A. Sen, \emph{Black hole entropy function, attractors and precision counting of microstates}, Gen. Relativ. Gravit. \textbf{40} (2008), 2249--2431. \href{https://doi.org/10.1007/s10714-008-0626-4}{doi:10.1007/s10714-008-0626-4}
@@ -420,6 +410,5 @@ For $N=2$ the proof of \cite{Bha26a} reduces every charge, by duality and the Fr
 \bibitem{Ono04} K. Ono, \emph{The Web of Modularity: Arithmetic of the Coefficients of Modular Forms and $q$-series}, CBMS Regional Conference Series in Mathematics 102, American Mathematical Society, Providence, 2004. \href{https://doi.org/10.1090/cbms/102}{doi:10.1090/cbms/102}
 \bibitem{Del74} P. Deligne, \emph{La conjecture de Weil. I}, Publ. Math. IH\'ES \textbf{43} (1974), 273--307. \href{https://doi.org/10.1007/BF02684373}{doi:10.1007/BF02684373}
 \end{thebibliography}
-\PublishersNote{}
-\end{adjustwidth}
+
 \end{document}
