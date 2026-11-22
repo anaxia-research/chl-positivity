@@ -1,0 +1,8 @@
+N 2 P 0.0850785 s 0.2916822 alpha 5.8769 K 5.1047 b 12.0843
+  Theta^2: m>=100 0.7476, m<=99 0.5362 -> Theta 0.8646 <= theta_N 0.865
+  gamma 1.4944; at D=1e8: positivity margin 4101.6, 0.9-power margin 967.2 (both increase with D)
+  Theorem C constants: 4 pi s/sqrt N = 2.59182, 1+alpha = 6.8769, b = 12.0843
+N 3 P 0.0387251 s 0.1967868 alpha 8.6077 K 8.7804 b 15.7623
+  Theta^2: m>=100 0.7157, m<=99 0.3287 -> Theta 0.8460 <= theta_N 0.847
+  gamma -1.7516; at D=1e8: positivity margin 4677.9, 0.9-power margin 1542.7 (both increase with D)
+  Theorem C constants: 4 pi s/sqrt N = 1.42773, 1+alpha = 9.6077, b = 15.7623
