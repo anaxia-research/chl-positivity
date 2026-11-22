@@ -1,13 +1,17 @@
 # chl-positivity
 
-Code and verification logs for **Positivity of Black Hole Indices in CHL Models I: The Four Prime Orders** by Deep Bhattacharjee.
+Code and verification logs for the series **Positivity of Black Hole Indices in CHL Models** by Deep Bhattacharjee:
 
-The paper proves Sen's positivity conjecture for every single-centred quarter-BPS black hole in the Z2, Z3, Z5 and Z7 CHL models by one argument, gives two-sided bounds that fix each index up to a bounded factor, and writes the first row Q^2 = 2/N in closed form through the theta series of a maximal quaternion order.
+- Part I, *The Four Prime Orders*: folders `allcharges/` and `code/`.
+- Part II, *The Twined Indices*: folder `twined/`.
+
+Part I proves Sen's positivity conjecture for every single-centred quarter-BPS black hole in the Z2, Z3, Z5 and Z7 CHL models by one argument, gives two-sided bounds that fix each index up to a bounded factor, and writes the first row Q^2 = 2/N in closed form through the theta series of a maximal quaternion order.
 
 ## Layout
 
 - `allcharges/`: the all-charges proof (exact expansion, error bounds, corner certification, two-sided bounds), with its output logs in `allcharges/logs/`. See `allcharges/README.md`.
 - `code/`: the exact first-row computations (numerator identity, quaternion theta identity, closed form) and the shared engine `chl.py`.
+- `twined/`: Part II. The twined indices of the Z2 x Z2 and Z3 x Z3 twisted-twining models, the positivity of every sector index S_j, and the bound |d_{*,g}| < 0.03 d_*. See `twined/README.md`.
 
 ## First row (run inside `code/`)
 
