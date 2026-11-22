@@ -21,6 +21,8 @@ Requirements: Python 3, numpy, sympy, mpmath, python-flint (for exact series and
 ## Proofs of the structural inputs (appendices A–C)
 
 - `fixline.py`: the fixed-curve lattice search for the elliptic elements of Γ0(5) and Γ0(7) (Appendix A); output in `logs/fixline.log`.
+- `weyl.py N`: the Weyl-vector check of Proposition A.6 for the Schreier generators of Γ0(N) (and of GL2(Z) with `N=1`); output in `logs/weyl_N.log`.
+- `hecke.py N P`: checks the Hecke-operator form of the logarithm of the product (Lemma A.8(c)) for L ≤ 3; output in `logs/hecke_N.log`.
 - `gamma0e.py`: direct check that d* is invariant under those elliptic elements (`logs/gamma0e_5.log`, `logs/gamma0e_7.log`).
 - `myformula.py`: the corrected exact expansion of Theorem 4.3, compared with exact values (`logs/my*.log`, `logs/myT*.log`).
 - `knew.py`, `kn3.py`: bounds for the K-terms of the corrected expansion (`logs/knew_*.log`); `crude.py` is updated to the same form.
