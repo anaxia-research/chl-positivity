@@ -1,0 +1,9 @@
+reps 19530 enum time 0.1981668472290039
+block m in (0,1] X=801 charges=1600 time=233.8s bad so far=0
+block m in (1,2] X=402 charges=1198 time=23.0s bad so far=0
+block m in (2,4] X=269 charges=2047 time=10.7s bad so far=0
+block m in (4,8] X=163 charges=3562 time=8.6s bad so far=0
+block m in (8,16] X=94 charges=5840 time=8.8s bad so far=0
+block m in (16,32] X=56 charges=5157 time=16.2s bad so far=0
+block m in (32,40] X=41 charges=126 time=15.4s bad so far=0
+N 2 D0 1600 charges 19530 nonpositive 0 [] total 316.60151410102844

@@ -1,0 +1,4 @@
+N=2 through q^300: W formula True, decomposition True, W>=0 True, first coefficients ['0', '48', '384', '1344', '3072', '6048']
+N=3 through q^300: W formula True, decomposition True, W>=0 True, first coefficients ['0', '9', '81', '243', '657', '1134']
+N=5 through q^300: W formula True, decomposition True, W>=0 True, first coefficients ['0', '0', '15', '30', '75', '150']
+N=7 through q^300: W formula True, decomposition True, W>=0 True, first coefficients ['0', '0', '3', '9', '24', '33']

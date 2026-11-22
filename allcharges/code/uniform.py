@@ -44,7 +44,7 @@ def U(m,K=4):
     e2=sum(N*math.sqrt(2)*gam*(Sfr(gam,False)+wN*Tfr(gam)) for gam in range(2,Gam+1))
     y=c*math.sqrt(m*m+4*m)
     Wtot=SigS**2+wN*2*SigR*SigRN
-    e3=N*math.sqrt(2)*math.exp(c*tau/Gam)*(c*tau/2)**nu*Gam**(1.5-nu)/(nu-1.5)*Wtot*math.sqrt(2*math.pi*y)*math.exp(-y)/(0.9*math.gamma(nu+1))
+    e3=N*math.sqrt(2)*math.exp(c*tau/Gam)*(c*tau/2)**nu*Gam**(1.5-nu)/(nu-1.5)*Wtot*math.sqrt(2*math.pi*y)*math.exp(-y)/(0.44*math.gamma(nu+1))  # I_nu(y) >= 0.44 e^y/sqrt(2 pi y) for y>=50, nu<=7.5
     return e1,e2,e3
 def UK(m,G=400):
     # K2/K3 pieces as in errterms.eps_K, x=x0 (worst case), gamma<=G, plus power-law tail
