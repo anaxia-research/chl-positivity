@@ -103,7 +103,7 @@ allok=True
 for h in gens:
     ok,S=check(h,verbose=True); allok&=ok
 # also elliptic elements used in the paper and U_N
-extra=[(1,0,0,-1)]+([(1,0,N,1),(2,1,-5,-2) if N==5 else (3,1,-7,-2) if N==7 else (1,-1,3,-2)] if N>1 else [(0,1,1,0)])
+extra=[(1,0,0,-1)]+([(1,0,N,1),(2,1,-5,-2) if N==5 else (3,1,-7,-2) if N==7 else (1,-1,2,-1) if N==2 else (1,-1,3,-2)] if N>1 else [(0,1,1,0)])
 for h in extra:
     ok,S=check(h,verbose=True); allok&=ok
 print('ALL OK' if allok else 'SOME FAIL')

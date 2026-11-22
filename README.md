@@ -1,33 +1,26 @@
 # chl-positivity
 
-Code for **Positive First-Row Black Hole Indices in CHL Models** by Deep Bhattacharjee.
+Code and verification logs for **Positivity of Black Hole Indices in CHL Models I: The Four Prime Orders** by Deep Bhattacharjee.
 
-The paper proves Sen's positivity conjecture for every single-centred black hole with electric charge Q² = 2/N in the Z3, Z5 and Z7 CHL models. It also gives an exact closed formula for the finite part of the first Fourier–Jacobi coefficient of the inverse dyon partition function.
+The paper proves Sen's positivity conjecture for every single-centred quarter-BPS black hole in the Z2, Z3, Z5 and Z7 CHL models by one argument, gives two-sided bounds that fix each index up to a bounded factor, and writes the first row Q^2 = 2/N in closed form through the theta series of a maximal quaternion order.
 
 ## Layout
 
-- `figures/`: created by `figs.py`.
-- `code/`: the programs behind every computation in the paper.
+- `allcharges/`: the all-charges proof (exact expansion, error bounds, corner certification, two-sided bounds), with its output logs in `allcharges/logs/`. See `allcharges/README.md`.
+- `code/`: the exact first-row computations (numerator identity, quaternion theta identity, closed form) and the shared engine `chl.py`.
 
-## Running the checks
+## First row (run inside `code/`)
 
 Requirements: Python 3.10 or newer, and `pip install python-flint sympy numpy mpmath matplotlib`.
 
-Run every command from inside `code/`.
+| Command | What it checks | Log |
+|---|---|---|
+| `python3 verify_num.py N X` | The numerator identity and the quaternion theta identity through x^X, for N = 2, 3, 5, 7 | `allcharges/logs/num_theta.log` |
+| `python3 verify_closed.py N X` | The closed form of g(sigma/N) phi^F_1 against the finite part computed from the product formula | `allcharges/logs/closed_N.log` |
+| `python3 verify_W.py X` | The forms W_N, their eta-quotient expressions and Eisenstein-cusp decompositions through q^X | `allcharges/logs/W_forms.log` |
+| `python3 proof_row1.py` | The inequalities in the sign argument for N = 3, 5, 7 and the small cases | |
+| `python3 box.py N X M` | Exact check of every charge with m <= M and m <= n < X | |
 
-| Command | What it checks |
-|---|---|
-| `python3 verify_id.py N X` | Proposition 3.1 (numerator identity) through x^X. Use X ≥ 12, 60, 168 for N = 3, 5, 7. |
-| `python3 match2.py N X` | Proposition 4.1 (quaternion theta identity) through x^X. |
-| `python3 verify_K.py N X` | Theorem 1.2: the closed form against the finite part computed from the product formula. |
-| `python3 W.py` | The forms W_N and their Eisenstein–cusp decompositions. |
-| `python3 proof_row1.py` | The inequalities in the proof of Proposition 6.2 and the list of small cases that are read off exactly. |
-| `python3 box.py N X M` | The exact check of every charge with m ≤ M and m ≤ n < X (Section 7). |
-| `python3 figs.py` | Redraws the figures of the paper into `figures/`. |
+`chl.py` expands the product formula in exact rational arithmetic and computes polar and finite parts; `quat.py`, `lattice.py` build the maximal orders (Hurwitz quaternions for N = 2) and their theta series; `row1_lib.py` computes Hurwitz class numbers.
 
-`chl.py` is the core engine. It expands the product formula in exact rational arithmetic and computes the polar and finite parts. `quat.py`, `lattice.py` and `lat2.py` build the maximal quaternion orders and their theta series. `row1_lib.py` computes Hurwitz class numbers.
-
-The paper uses these settings:
-- the identities through x^40 (N = 3), x^70 (N = 5) and x^175 (N = 7);
-- the theta identity through x^14, x^62 and x^170;
-- the box check `box.py N 121 6`.
+The paper uses: `verify_num.py N 40`, `verify_closed.py N 62`, `verify_W.py 300`.

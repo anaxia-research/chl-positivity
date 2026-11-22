@@ -1,6 +1,6 @@
 # closed-form bound for all remaining terms when m >= M (decreasing in m), uniform in x >= x0
 import math
-for N in (3,5,7):
+for N in (2,3,5,7):
     kp2=24//(N+1); nu=kp2-2+1.5
     c=math.pi*math.sqrt(3)/N; kap=kp2*(1+1/N)*math.pi**2/6
     def logDb(X):   # log(1+ sqrt(X/kap) e^kap e^{2 sqrt(kap X)})  (X>=4kap)
