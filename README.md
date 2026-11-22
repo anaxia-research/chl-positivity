@@ -1,12 +1,12 @@
 # chl-positivity
 
-Code and paper source for **Positive First-Row Black Hole Indices in CHL Models** by Deep Bhattacharjee.
+Code for **Positive First-Row Black Hole Indices in CHL Models** by Deep Bhattacharjee.
 
 The paper proves Sen's positivity conjecture for every single-centred black hole with electric charge Q² = 2/N in the Z3, Z5 and Z7 CHL models. It also gives an exact closed formula for the finite part of the first Fourier–Jacobi coefficient of the inverse dyon partition function.
 
 ## Layout
 
-- `paper/`: the LaTeX source (amsart), the figures and the compiled PDF.
+- `figures/`: created by `figs.py`.
 - `code/`: the programs behind every computation in the paper.
 
 ## Running the checks
@@ -23,7 +23,7 @@ Run every command from inside `code/`.
 | `python3 W.py` | The forms W_N and their Eisenstein–cusp decompositions. |
 | `python3 proof_row1.py` | The inequalities in the proof of Proposition 6.2 and the list of small cases that are read off exactly. |
 | `python3 box.py N X M` | The exact check of every charge with m ≤ M and m ≤ n < X (Section 7). |
-| `python3 figs.py` | Redraws the figures in `paper/figures`. |
+| `python3 figs.py` | Redraws the figures of the paper into `figures/`. |
 
 `chl.py` is the core engine. It expands the product formula in exact rational arithmetic and computes the polar and finite parts. `quat.py`, `lattice.py` and `lat2.py` build the maximal quaternion orders and their theta series. `row1_lib.py` computes Hurwitz class numbers.
 

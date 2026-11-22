@@ -4,7 +4,8 @@ from fractions import Fraction as Fr
 import matplotlib; matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 plt.rcParams.update({'font.family':'serif','font.size':10})
-out=__import__('os').path.join(__import__('os').path.dirname(__import__('os').path.abspath(__file__)),'..','paper','figures')+'/'
+out=__import__('os').path.join(__import__('os').path.dirname(__import__('os').path.abspath(__file__)),'..','figures')+'/'
+__import__('os').makedirs(out,exist_ok=True)
 rows={}; tables={}
 for N in (3,5,7):
     X=4*N*12//4+8
